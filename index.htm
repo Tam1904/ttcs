@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="base.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="main1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="grid__full-width">
+                <div class="header_navar-background">
+
+                    <nav class="header__navbar ">
+
+                        <span class="header__navbar--item-1">
+                            Trùm giày thể thao Adidas, Nike Kids - Capvirgo.com
+                        </span>
+
+
+                        <div class="header__navbar--phone">
+                            <div class="header__navbar--phone-item">
+                                <i class="fas fa-phone-alt header__navbar--img"></i>
+                            </div>
+                            <div class="header__navbar--phone-number">
+                                <span class="header__navbar--phone"> 0865.234.567</span>
+                            </div>
+                        </div>
+
+                        <ul class="header__navbar--list">
+                            <li class="header__navbar--item" style="margin-right: 15px;">
+                                Thứ 2-CN : 8h-21h30
+                            </li>
+                            <li class="header__navbar--item">Đăng ký</li>
+                            <li class="header__navbar--item" style="margin-left: 10px;">Đăng nhập</li>
+                            <!-- <li class="header__navbar-item-user">
+                                <img src="anhnen.jfif" alt="" class="header__navbar-item-user-avatar">
+                                <div class="header__navbar-item-user-name">
+                                    <span class="header__navbar-item-user-name-Name">Tâm Nguyễn</span>
+                                    <div class="header__navbar-item-user-name-list">
+                                        <ul class="header__navbar-item-user-name-list1">
+                                            <li class="header__navbar-item-user-name-list1-item">
+                                                <a href="" class="header__navbar-item-user-name-list1-item-link">
+                                                    Tài khoản của tôi
+                                                </a>
+                                            </li>
+                                            <li class="header__navbar-item-user-name-list1-item">
+                                                <a href="" class="header__navbar-item-user-name-list1-item-link">
+                                                    Đơn mua
+                                                </a>
+                                            </li>
+                                            <li class="header__navbar-item-user-name-list1-item">
+                                                <a href="" class="header__navbar-item-user-name-list1-item-link">
+                                                    Đăng xuất
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+
+                    </nav>
+                </div>
+                <div class="header-with-seach-background">
+                    <div class="header-with-seach">
+                        <div class="header__logo">
+                            <img src="logo-3.png" alt="" class="header__logo-img">
+                        </div>
+
+
+                        <div class="header__seach">
+                            <form active="" method="post" class="header__seach-wrap" id='header-seach'>
+                                <input type="text" class="header__seach-input" placeholder="Tìm kiếm sản phẩm">
+
+                                <!-- <div class="header_seach-history">
+                                    <h3 class="header__seach-history-heading">
+                                        Lịch sử tìm kiếm
+                                    </h3>
+                                    <ul class="header__seach-history-list">
+                                        <li class="header__seach-history-item">
+                                        </li>
+
+                                        <li class="header__seach-history-item">
+                                        </li>
+
+                                        <li class="header__seach-history-item">
+                                        </li>
+                                    </ul>
+                                </div> -->
+
+                                <button class="header__seach-btn">
+                                        Tìm kiếm
+                                    </button>
+                            </form>
+                        </div>
+
+
+
+                        <div class="header__cart">
+                            <div class="header__cart-wrap">
+                                <!-- <i class="header__cart-icon fa-solid fa-cart-shopping"></i> -->
+                                <img src="icons8-cart-64.png" style="width: 35px;">
+                                <span class="header__cart-wrap-icon">giỏ hàng của bạn</span>
+                                <!-- <div class="header__cart-list">
+                                    <span class="header__cart-list-no-cart-msg">Chưa có sản phẩm</span>
+
+                                    <h4 class="header_cart-heading">Sản phẩm đã thêm</h4>
+                                    <ul class="header_cart-list-item">
+                                        <!-- <li class="header_cart-item">
+                                            <img src="giay1.jpg" alt="" class="header_cart-img">
+                                            <div class="header_cart-item-info">
+
+                                                <div class="header_cart-item-head">
+                                                    <h5 class="header_cart-item-name">Giày thể thao Giày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoy </h5>
+
+                                                    <div class="header_cart-item-price-wrap">
+                                                        <span class="header_cart-item-price">200.000đ</span>
+                                                        <span class="header_cart-item-multiply">x</span>
+                                                        <span class="header_cart-item-qbt">2</span>
+                                                    </div>
+                                                </div>
+                                                <div class="header_cart-item-body">
+
+
+                                                    <span class="header_cart-item-remove">Xóa</span>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+
+                                        <li class="header_cart-item">
+                                            <img src="giay1.jpg" alt="" class="header_cart-img">
+                                            <div class="header_cart-item-info">
+
+                                                <div class="header_cart-item-head">
+                                                    <h5 class="header_cart-item-name">Giày thể thao Giày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoy </h5>
+
+                                                    <div class="header_cart-item-price-wrap">
+                                                        <span class="header_cart-item-price">200.000đ</span>
+                                                        <span class="header_cart-item-multiply">x</span>
+                                                        <span class="header_cart-item-qbt">2</span>
+                                                    </div>
+                                                </div>
+                                                <div class="header_cart-item-body">
+
+
+                                                    <span class="header_cart-item-remove">Xóa</span>
+                                                </div>
+
+                                            </div>
+
+
+                                        </li>
+
+                                        <li class="header_cart-item">
+                                            <img src="giay1.jpg" alt="" class="header_cart-img">
+                                            <div class="header_cart-item-info">
+
+                                                <div class="header_cart-item-head">
+                                                    <h5 class="header_cart-item-name">Giày thể thao Giày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoGiày thể thaoy </h5>
+
+                                                    <div class="header_cart-item-price-wrap">
+                                                        <span class="header_cart-item-price">200.000đ</span>
+                                                        <span class="header_cart-item-multiply">x</span>
+                                                        <span class="header_cart-item-qbt">2</span>
+                                                    </div>
+                                                </div>
+                                                <div class="header_cart-item-body">
+
+                                                    <span class="header_cart-item-remove">Xóa</span>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+                                    <a href="" class="header_cart-view-cart btn btn--primary1">Xem giỏ hàng</a>
+                                </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_filter-background">
+
+                    <div class="header-filter">
+                        <div class="home-filter">
+
+                            <div class="home__heading">
+                                <h3 class="home-category"> DANH MỤC SẢN PHẨM</h3>
+                                <i class="home__heading-icon fas fa-bars"></i>
+
+                            </div>
+
+                            <a href="" class="home-heading-btn">
+                                 TRANG CHỦ
+                            </a>
+
+                            <a href="" class="home-heading-btn">
+                                 THÔNG BÁO
+                            </a>
+
+                            <a href="" class="home-heading-btn">
+                                 XEM CÁC ĐƠN HÀNG
+                            </a>
+
+                            <!-- <a href="" class="home-heading-btn">
+                                 HỆ THỐNG CỦA HÀNG 
+                            </a>
+
+                            <a href="" class="home-heading-btn">
+                                 TIN KHUYẾN MẠI
+                            </a> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </header>
+        <div class="container">
+            <div class="modal_black"></div>
+            <div class="grid">
+                <div class="grid__row ">
+                    <div class="grid__column-2">
+                        <nav class="category">
+
+                            <div class="category-img">
+                                <div class="category-img-item ">
+                                    <div class="category-img-item-1 category-img-item-phone">
+                                        <a href="" class="category-img-link-img">
+                                            <img src="phone.png" alt="" class="category-img-link-phone">
+                                        </a>
+                                    </div>
+
+                                    <div class="category-img-link-hover category-img-item-phone category-img-link-hover1">
+                                        <h3 class="category-img-link-heading">
+                                            Hotline
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="category-img-item ">
+                                    <div class="category-img-item-1 category-img-item-meg">
+                                        <a href="" class="category-img-link-img">
+                                            <img src="meg.png" alt="" class="category-img-link">
+                                        </a>
+                                    </div>
+
+                                    <div class="category-img-link-hover category-img-item-meg category-img-link-hover2">
+                                        <h3 class="category-img-link-heading">
+                                            Facebook
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <div class="category-img-item">
+                                    <div class="category-img-item-1">
+                                        <a href="" class="category-img-link-img">
+                                            <img src="zalo-1.png" alt="" class="category-img-link">
+                                        </a>
+                                    </div>
+
+                                    <div class="category-img-link-hover category-img-link-hover3">
+                                        <h3 class="category-img-link-heading">
+                                            Zalo
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="category-list">
+                                <li class="category-item">
+                                    <img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nam-icon.png" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Giày thể thao nam
+                                   </a>
+                                </li>
+
+                                <li class="category-item">
+                                    <img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nu-icon.png" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Giày thể thao nữ
+                                   </a>
+
+                                </li>
+
+                                <li class="category-item">
+                                    <img src="https://capvirgo.com/wp-content/uploads/2017/11/adidas-icon.png" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Giày Adidas 
+                                   </a>
+
+                                </li>
+
+                                <li class="category-item">
+                                    <img src="https://capvirgo.com/wp-content/uploads/2021/07/air-jordan-150x150.png" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Giày Bóng Rổ
+                                   </a>
+
+                                </li>
+
+                                <li class="category-item">
+                                    <img src="https://capvirgo.com/wp-content/uploads/2021/01/hang_chinh_hang-150x150.jpg" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Giày chính hãng
+                                   </a>
+
+                                </li>
+
+                                <li class="category-item">
+                                    <img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-gia-tot.png" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Giá rẻ 
+                                   </a>
+
+                                </li>
+
+                                <!-- <li class="category-item">
+                                    <img src="" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Sản phẩm mới về 
+                                   </a>
+
+                                </li> -->
+
+                                <li class="category-item">
+                                    <img src="https://capvirgo.com/wp-content/uploads/2021/09/icon-quan-ao-tre-em-150x150.png" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Quần áo bóng đá
+                                   </a>
+
+                                </li>
+
+                                <!-- <li class="category-item">
+                                    <img src="" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Dụng cụ chơi Golf
+                                   </a>
+
+                                </li>
+
+                                <li class="category-item">
+                                    <img src="" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Quần áo bóng rổ
+                                   </a>
+
+                                </li> -->
+
+                                <li class="category-item">
+                                    <img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-tre-em-icon.png" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Giày thể thao trẻ em
+                                   </a>
+
+                                </li>
+
+                                <!-- <li class="category-item">
+                                    <img src="" class="category-item-img">
+                                    <a href="" class="category-item__link">
+                                       Dụng cụ hỗ trợ
+                                   </a>
+
+                                </li> -->
+
+                            </ul>
+                        </nav>
+                        <nav class="top-product">
+                            <header class="top-product-heading">
+                                <h3 class="top-product-h3">
+                                    TOP BÁN CHẠY
+                                </h3>
+                            </header>
+                            <ul class="top-product-list">
+                                <li class="top-product-list-item">
+                                    <div class="top-product-list-item-1">
+                                        <a href="" class="top-product-list-name">
+                                            Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
+                                    </a>
+                                        <a href="" class="top-product-list-link-img">
+                                            <img src="giay1.jpg" alt="" class="top-product-list-item-img">
+                                        </a>
+                                    </div>
+                                    <span class="top-product-list-item-price">
+                                        890.000 đ
+                                    </span>
+                                </li>
+                                <li class="top-product-list-item">
+                                    <div class="top-product-list-item-1">
+                                        <a href="" class="top-product-list-name">
+                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
+                                    </a>
+                                        <a href="" class="top-product-list-link-img">
+                                            <img src="giay1.jpg" alt="" class="top-product-list-item-img">
+                                        </a>
+                                    </div>
+                                    <span class="top-product-list-item-price">
+                                        890.000 đ
+                                    </span>
+                                </li>
+                                <li class="top-product-list-item">
+                                    <div class="top-product-list-item-1">
+                                        <a href="" class="top-product-list-name">
+                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
+                                    </a>
+                                        <a href="" class="top-product-list-link-img">
+                                            <img src="giay1.jpg" alt="" class="top-product-list-item-img">
+                                        </a>
+                                    </div>
+                                    <span class="top-product-list-item-price">
+                                        890.000 đ
+                                    </span>
+                                </li>
+                                <li class="top-product-list-item">
+                                    <div class="top-product-list-item-1">
+                                        <a href="" class="top-product-list-name">
+                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
+                                    </a>
+                                        <a href="" class="top-product-list-link-img">
+                                            <img src="giay1.jpg" alt="" class="top-product-list-item-img">
+                                        </a>
+                                    </div>
+                                    <span class="top-product-list-item-price">
+                                        890.000 đ
+                                    </span>
+                                </li>
+                                <li class="top-product-list-item">
+                                    <div class="top-product-list-item-1">
+                                        <a href="" class="top-product-list-name">
+                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
+                                    </a>
+                                        <a href="" class="top-product-list-link-img">
+                                            <img src="giay1.jpg" alt="" class="top-product-list-item-img">
+                                        </a>
+                                    </div>
+                                    <span class="top-product-list-item-price">
+                                        890.000 đ
+                                    </span>
+                                </li>
+                                <li class="top-product-list-item">
+                                    <div class="top-product-list-item-1">
+                                        <a href="" class="top-product-list-name">
+                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
+                                    </a>
+                                        <a href="" class="top-product-list-link-img">
+                                            <img src="giay1.jpg" alt="" class="top-product-list-item-img">
+                                        </a>
+                                    </div>
+                                    <span class="top-product-list-item-price">
+                                        890.000 đ
+                                    </span>
+                                </li>
+                                <li class="top-product-list-item">
+                                    <div class="top-product-list-item-1">
+                                        <a href="" class="top-product-list-name">
+                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
+                                    </a>
+                                        <a href="" class="top-product-list-link-img">
+                                            <img src="giay1.jpg" alt="" class="top-product-list-item-img">
+                                        </a>
+                                    </div>
+                                    <span class="top-product-list-item-price">
+                                        890.000 đ
+                                    </span>
+                                </li>
+                                <li class="top-product-list-item">
+                                    <div class="top-product-list-item-1">
+                                        <a href="" class="top-product-list-name">
+                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
+                                    </a>
+                                        <a href="" class="top-product-list-link-img">
+                                            <img src="giay1.jpg" alt="" class="top-product-list-item-img">
+                                        </a>
+                                    </div>
+                                    <span class="top-product-list-item-price">
+                                        890.000 đ
+                                    </span>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="grid__column-10">
+
+                        <div class="home-product">
+                            <!-- nguyên tắc grid - row - column  -->
+                            <div class="grid__row">
+                                <div class="grid__row-title">
+                                    <h3 class="grid__row-title-name">GIÀY THỂ THAO TRẺ EM </h3>
+                                    <!-- <a href="" class="grid__row-title-link">Xem thêm</a> -->
+                                </div>
+                                <div class="grid__column-2-5">
+                                    <div class="home-product-item">
+                                        <img src="giay1.jpg" alt="" class="home-product-item-img">
+                                        <h4 class="home-product-item-name">Giày nike trẻ em Traiblazer video game đế 3 màu nhập khẩu nước ngoài</h4>
+                                        <div class="home-product-item-price">
+                                            <span class="home-product-item-price-current">250.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <a href="" class="home-product-item__origin-brand">Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-2-5">
+                                    <div class="home-product-item">
+                                        <img src="giay1.jpg" alt="" class="home-product-item-img">
+                                        <h4 class="home-product-item-name">Giày nike trẻ em Traiblazer video game đế 3 màu nhập khẩu nước ngoài</h4>
+                                        <div class="home-product-item-price">
+                                            <span class="home-product-item-price-current">250.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <a href="" class="home-product-item__origin-brand">Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-2-5">
+                                    <div class="home-product-item">
+                                        <img src="giay1.jpg" alt="" class="home-product-item-img">
+                                        <h4 class="home-product-item-name">Giày nike trẻ em Traiblazer video game đế 3 màu nhập khẩu nước ngoài</h4>
+                                        <div class="home-product-item-price">
+                                            <span class="home-product-item-price-current">250.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <a href="" class="home-product-item__origin-brand">Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-2-5">
+                                    <div class="home-product-item">
+                                        <img src="giay1.jpg" alt="" class="home-product-item-img">
+                                        <h4 class="home-product-item-name">Giày nike trẻ em Traiblazer video game đế 3 màu nhập khẩu nước ngoài</h4>
+                                        <div class="home-product-item-price">
+                                            <span class="home-product-item-price-current">250.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <a href="" class="home-product-item__origin-brand">Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-2-5">
+                                    <div class="home-product-item">
+                                        <img src="giay1.jpg" alt="" class="home-product-item-img">
+                                        <h4 class="home-product-item-name">Giày nike trẻ em Traiblazer video game đế 3 màu nhập khẩu nước ngoài</h4>
+                                        <div class="home-product-item-price">
+                                            <span class="home-product-item-price-current">250.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <a href="" class="home-product-item__origin-brand">Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-2-5">
+                                    <div class="home-product-item">
+                                        <img src="giay1.jpg" alt="" class="home-product-item-img">
+                                        <h4 class="home-product-item-name">Giày nike trẻ em Traiblazer video game đế 3 màu nhập khẩu nước ngoài</h4>
+                                        <div class="home-product-item-price">
+                                            <span class="home-product-item-price-current">250.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <a href="" class="home-product-item__origin-brand">Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-2-5">
+                                    <div class="home-product-item">
+                                        <img src="giay1.jpg" alt="" class="home-product-item-img">
+                                        <h4 class="home-product-item-name">Giày nike trẻ em Traiblazer video game đế 3 màu nhập khẩu nước ngoài</h4>
+                                        <div class="home-product-item-price">
+                                            <span class="home-product-item-price-current">250.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <a href="" class="home-product-item__origin-brand">Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-2-5">
+                                    <div class="home-product-item">
+                                        <img src="giay1.jpg" alt="" class="home-product-item-img">
+                                        <h4 class="home-product-item-name">Giày nike trẻ em Traiblazer video game đế 3 màu nhập khẩu nước ngoài</h4>
+                                        <div class="home-product-item-price">
+                                            <span class="home-product-item-price-current">250.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <a href="" class="home-product-item__origin-brand">Mua ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__column-2-5">
+                        <h3 class="footer_heding">Chăm sóc khách hàng </h3>
+                        <ul class="footer-list">
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Trung Tâm Trợ Giúp</a>
+
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Hướng Dẫn Mua Hàng</a>
+
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Vận Chuyển</a>
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Trả Hàng & Hoàn Tiền</a>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid__column-2-5">
+                        <h3 class="footer_heding">Về shop </h3>
+                        <ul class="footer-list">
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Giới Thiệu</a>
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Chính Sách Bảo Mật</a>
+
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Chính Hãng</a>
+
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Flash Sales</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid__column-2-5">
+                        <h3 class="footer_heding">Danh mục </h3>
+                        <ul class="footer-list">
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Sảm Phẩm Mới Nhất</a>
+
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Xả hàng</a>
+
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Ưu Đãi Khách Hàng</a>
+
+                            </li>
+                            <li class="footer-list-item">
+                                <a href="" class="footer-list-item-link">Yêu Cầu Trợ Giúp</a>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid__column-2-5">
+                        <h3 class="footer_heding">Theo dõi </h3>
+                        <ul class="footer-list">
+                            <li class="footer-list-item">
+                                <i class="footer-list-item-icon fab fa-facebook"></i>
+                                <a href="" class="footer-list-item-link">Facebook</a>
+                            </li>
+
+                            <li class="footer-list-item">
+                                <i class="footer-list-item-icon fab fa-instagram-square"></i>
+                                <a href="" class="footer-list-item-link">Instagram</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="grid__full-width">
+                <div class="footer__bottom">
+                    <p class="footer__text"> 2022 - Bản quyền thuộc Cavirgo.com</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./index.js"></script>
+    <script>
+        Search('#header-seach')
+        Active('.home-filter')
+        Cart('.header__cart-list')
+        Category('.home__heading')
+        Sticky('.header_filter-background')
+    </script>
+</body>
+
+</html>
