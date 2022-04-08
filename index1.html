@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>TRANG CHỦ</title>
+    <title>LOAI + TIM KIEM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="base.css">
     <!-- <link rel="stylesheet" href="main.css"> -->
@@ -14,8 +14,6 @@
     <div class="app">
         <header class="header">
             <div class="grid__full-width">
-
-
                 <div class="header_navar-background">
 
                     <nav class="header__navbar ">
@@ -71,7 +69,7 @@
                 <div class="header-with-seach-background">
                     <div class="header-with-seach">
                         <div class="header__logo">
-                            <img src="logo-3.png" alt="" class="header__logo-img">
+                            <img src="https://capvirgo.com/wp-content/uploads/2017/11/logo-3.png" alt="" class="header__logo-img">
                         </div>
 
 
@@ -253,7 +251,6 @@
                                                 <a href=" " class="category-item__link ">
                                                    Giày thể thao nữ
                                                </a>
-            
                                             </li>
             
                                             <li class="category-item ">
@@ -350,7 +347,7 @@
                             <!-- nguyên tắc grid - row - column  -->
                             <div class="grid__row ">
                                 <div class="grid__row-title ">
-                                    <h3 class="grid__row-title-name ">GIÀY THỂ THAO TRẺ EM </h3>
+                                    <h3 class="grid__row-title-name-2 ">GIÀY THỂ THAO TRẺ EM </h3>
                                     <!-- <a href=" " class="grid__row-title-link ">Xem thêm</a> -->
                                 </div>
                                 <div class="grid__column-2-5 ">
@@ -489,7 +486,7 @@
 
                     </div>
                     <div class="grid__column-2 ">
-                        <div class="category ">
+                        <nav class="category ">
 
                             <div class="category-img ">
                                 <div class="category-img-item ">
@@ -534,112 +531,71 @@
                                 </div>
                             </div>
 
-                            <ul class="category-list ">
-                                <li class="category-item ">
-                                    <img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nam-icon.png " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Giày thể thao nam
-                                   </a>
-                                </li>
+                            <div class="category-money ">
+                                <span class="category-money-item "> LỌC THEO GIÁ</span>
+                                <form action="/action_page.php " class='category-money-choose'>
+                                    <label for="cars " class='category-money-choose-lable'>CHỌN GIÁ TIỀN:</label>
+                                    <select name="shoes " class="category-money-choose-shoes ">
+                                          <option value="volvo ">Dưới 500k</option>
+                                          <option value="saab " >Từ 500k - 1 triệu</option>
+                                          <option value="opel " >Từ 1 trệu đến 2 triệu</option>
+                                          <option value="audi " >Trên 2 triệu</option>
+                                        </select>
+                                    <br><br>
+                                    <input type='submit' value="LỌC " class="category-money-choose-submit ">
+                                </form>
 
-                                <li class="category-item ">
-                                    <img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nu-icon.png " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Giày thể thao nữ
-                                   </a>
+                            </div>
 
-                                </li>
+                            <div class="category-trademark ">
+                                <span class="category-trademark-item "> THƯƠNG HIỆU</span>
+                                <form action="/action_page.php " class='category-trademark-choose'>
 
-                                <li class="category-item ">
-                                    <img src="https://capvirgo.com/wp-content/uploads/2017/11/adidas-icon.png " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Giày Adidas 
-                                   </a>
+                                    <div class="category-trademark-item1 ">
+                                        <input name='gender' type='radio' class="category-trademark-choose-box ">
+                                        <span class="category-trademark-choose-item ">Gucci</span>
+                                        <span class="category-trademark-choose-item1 ">(</span>
+                                        <span class="category-trademark-choose-item1 ">10</span>
+                                        <span class="category-trademark-choose-item1 ">)</span>
+                                    </div>
 
-                                </li>
+                                    <div class="category-trademark-item1 ">
+                                        <input name='gender' type='radio' class="category-trademark-choose-box ">
+                                        <span class="category-trademark-choose-item ">Adias</span>
+                                        <span class="category-trademark-choose-item1 ">(</span>
+                                        <span class="category-trademark-choose-item1 ">10</span>
+                                        <span class="category-trademark-choose-item1 ">)</span>
+                                    </div>
 
-                                <li class="category-item ">
-                                    <img src="https://capvirgo.com/wp-content/uploads/2021/07/air-jordan-150x150.png " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Giày Bóng Rổ
-                                   </a>
+                                    <div class="category-trademark-item1 ">
+                                        <input name='gender' type='radio' class="category-trademark-choose-box ">
+                                        <span class="category-trademark-choose-item ">Convers</span>
+                                        <span class="category-trademark-choose-item1 ">(</span>
+                                        <span class="category-trademark-choose-item1 ">10</span>
+                                        <span class="category-trademark-choose-item1 ">)</span>
+                                    </div>
 
-                                </li>
+                                    <div class="category-trademark-item1 ">
+                                        <input name='gender' type='radio' class="category-trademark-choose-box ">
+                                        <span class="category-trademark-choose-item ">Nike</span>
+                                        <span class="category-trademark-choose-item1 ">(</span>
+                                        <span class="category-trademark-choose-item1 ">10</span>
+                                        <span class="category-trademark-choose-item1 ">)</span>
+                                    </div>
+                                    <input type='submit' value="LỌC " class="category-money-choose-submit-1 ">
+                                </form>
 
-                                <li class="category-item ">
-                                    <img src="https://capvirgo.com/wp-content/uploads/2021/01/hang_chinh_hang-150x150.jpg " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Giày chính hãng
-                                   </a>
+                            </div>
 
-                                </li>
-
-                                <li class="category-item ">
-                                    <img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-gia-tot.png " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Giá rẻ 
-                                   </a>
-
-                                </li>
-
-                                <!-- <li class="category-item ">
-                                    <img src=" " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Sản phẩm mới về 
-                                   </a>
-
-                                </li> -->
-
-                                <li class="category-item ">
-                                    <img src="https://capvirgo.com/wp-content/uploads/2021/09/icon-quan-ao-tre-em-150x150.png " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Quần áo bóng đá
-                                   </a>
-
-                                </li>
-
-                                <!-- <li class="category-item ">
-                                    <img src=" " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Dụng cụ chơi Golf
-                                   </a>
-
-                                </li>
-
-                                <li class="category-item ">
-                                    <img src=" " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Quần áo bóng rổ
-                                   </a>
-
-                                </li> -->
-
-                                <li class="category-item ">
-                                    <img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-tre-em-icon.png " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Giày thể thao trẻ em
-                                   </a>
-
-                                </li>
-
-                                <!-- <li class="category-item ">
-                                    <img src=" " class="category-item-img ">
-                                    <a href=" " class="category-item__link ">
-                                       Dụng cụ hỗ trợ
-                                   </a>
-
-                                </li> -->
-
-                            </ul>
-                        </div>
+                        </nav>
                         <div class="top-product ">
-                            <header class="top-product-heading ">
-                                <h3 class="top-product-h3 ">
-                                    TOP BÁN CHẠY
+                            <header class="top-product-heading " style="background-color: #f5f5f5; border-bottom: 1px dashed var(--border-color); ">
+                                <h3 class="top-product-h3 " style="color: var(--text-color); font-size: 1.5rem;font-weight: 500; " >
+                                    GIÀY ĐẸP CỦA BẠN
                                 </h3>
                             </header>
                             <ul class="top-product-list ">
-                                <li class="top-product-list-item ">
+                                <li class="top-product-list-item " >
                                     <div class="top-product-list-item-1 ">
                                         <a href=" " class="top-product-list-name ">
                                             Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1
@@ -938,6 +894,7 @@
                 }
             }
         }
+
     </script>
 </body>
 
