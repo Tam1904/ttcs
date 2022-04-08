@@ -2,7 +2,7 @@
     --primary-color: #466082;
     --while-color: #ffff;
     --black-color: #000;
-    --text-color: #333;
+    --text-color: #333333;
     --border-color: #cccccc;
     --header-height: 120px;
     --nav-height: 34px;
@@ -40,6 +40,13 @@ p {
     margin: 0 auto;
 }
 
+
+/* @media only screen and (max-width: 700px) {
+    .grid {
+        width: 100%;
+    }
+} */
+
 .grid__full-width {
     width: 100%;
 }
@@ -47,17 +54,28 @@ p {
 .grid__row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -5px;
-    margin-right: -5px;
+    /* margin-left: -5px;
+    margin-right: -5px; */
+    /* flex-direction: column; */
 }
 
 .grid__column-2 {
+    display: flex;
     padding-left: 5px;
     padding-right: 5px;
     width: 25%;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
-.grid__column-21 {
+@media only screen and (max-width: 700px) {
+    .grid__column-2 {
+        width: 100%;
+    }
+}
+
+
+/* .grid__column-21 {
     padding-left: 5px;
     padding-right: 6px;
     width: 15.75vw;
@@ -66,38 +84,60 @@ p {
     margin-top: 10px;
     margin-left: -17px;
     display: none;
-}
+} */
 
 @media only screen and (max-width: 700px) {
-    .grid__column-21 {
+    .grid__column-2-1 {
         padding-left: 5px;
-        padding-right: 6px;
-        width: 100vw;
+        /* padding-right: 6px; */
+        width: 100%;
         position: absolute;
-        z-index: 20000;
-        margin-top: 10px;
-        margin-left: -21px;
+        z-index: 20;
+        top: 35px;
+        left: -35px;
         display: none;
+        transform-origin: left;
+        animation: grownIn 0.2s ease-in-out;
     }
 }
 
 @media only screen and (min-width: 701px) and (max-width: 2000px) {
-    .grid__column-21 {
+    .grid__column-2-1 {
         padding-left: 5px;
         padding-right: 6px;
-        width: 15.3vw;
+        width: 24%;
         position: absolute;
-        z-index: 20000;
-        margin-top: 10px;
-        margin-left: -17px;
+        z-index: 20;
+        top: 40px;
+        left: 8px;
         display: none;
     }
 }
 
 .grid__column-10 {
+    display: flex;
     padding-left: 5px;
     padding-right: 5px;
-    width: 75%;
+    /* width: 75%; */
+}
+
+@media only screen and (max-width: 700px) {
+    .grid__column-10 {
+        width: 100%;
+        /* position: relative; */
+    }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 2000px) {
+    .grid__column-10 {
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 2000px) {
+    .grid__column-10 {
+        order: 2;
+    }
 }
 
 .grid__column-4 {
@@ -108,17 +148,58 @@ p {
 }
 
 @media only screen and (max-width: 700px) {
+    .grid__column-4 {
+        width: 100%;
+        padding: 0 10px 10px 10px;
+    }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 2000px) {
+    .grid__column-4 {
+        width: 33.3333%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
     .grid__column-2-5 {
-        padding-left: 5px;
-        padding-right: 5px;
-        width: 33.33333%;
+        padding-left: 3px;
+        padding-right: 3px;
+        width: 50%;
     }
 }
 
 @media only screen and (min-width: 701px) and (max-width: 2000px) {
     .grid__column-2-5 {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 3px;
+        padding-right: 3px;
+        width: 25%;
+    }
+}
+
+
+/* .grid__column-2-5-nth {
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 30%;
+    margin-left: 10px;
+} */
+
+@media only screen and (max-width: 700px) {
+    .grid__column-2-5-nth:nth-child(4) {
+        display: none;
+    }
+    .grid__column-2-5-nth {
+        padding-left: 3px;
+        padding-right: 3px;
+        width: 30%;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 2000px) {
+    .grid__column-2-5-nth {
+        padding-left: 3px;
+        padding-right: 3px;
         width: 25%;
     }
 }
@@ -133,7 +214,18 @@ p {
 .grid__column-5 {
     padding-left: 5px;
     padding-right: 5px;
-    width: 41.6667%;
+}
+
+@media only screen and (max-width: 700px) {
+    .grid__column-5 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 2000px) {
+    .grid__column-5 {
+        width: 41.6667%;
+    }
 }
 
 .grid__column-3 {
@@ -249,4 +341,9 @@ p {
     justify-content: center;
     align-items: center;
     display: inline-flex;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
 }
