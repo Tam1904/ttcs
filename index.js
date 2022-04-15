@@ -327,3 +327,147 @@ function Menu(selector) {
         }
     }
 }
+
+// function movePage(event){
+
+//     document.addEventListener('mouseup', printMousePos);
+//     var x,y;
+//     function printMousePos(e){
+
+//         x = e.pageX;
+//         y= e.pageY;
+//         document.querySelector(".editEmployeeModal ").style.left = x + 'px';
+//         document.querySelector(".editEmployeeModal ").style.top = y + 'px';
+//     }
+// }
+
+
+function manager(selector, add, edit) {
+    var selectorElement = document.querySelector(selector);
+    var list = selectorElement.querySelectorAll('.button-item');
+    list[0].onclick = addProduct;
+    list[1].onclick = editProduct;
+    list[2].onclick = removeProduct;
+
+    function addProduct(event) {
+        if (event.target.style.backgroundColor == 'var(--primary-color)') {
+            var list = selectorElement.querySelectorAll('.button-item');
+
+            for (var item of list) {
+                if (item != event.target) {
+                    item.style.backgroundColor = '#999';
+                }
+            }
+            document.getElementById("search ").style.display = 'none';
+            document.querySelector(".editEmployeeModal ").style.display = 'block';
+            document.querySelector('.cart-detail').style.display = 'none';
+            document.querySelector('.modal-title').innerHTML = add;
+            document.querySelector('.btn-product').value = "Add";
+        }
+
+        var cancel = document.querySelector('.close');
+        cancel.onclick = function() {
+            document.querySelector(".editEmployeeModal ").style.display = 'none';
+            var list = selectorElement.querySelectorAll('.button-item');
+            for (var item of list) {
+                item.style.backgroundColor = 'var(--primary-color)';
+            }
+        }
+    }
+
+    function editProduct(event) {
+        if (event.target.style.backgroundColor == 'var(--primary-color)') {
+            var list = selectorElement.querySelectorAll('.button-item');
+
+            for (var item of list) {
+                if (item != event.target) {
+                    item.style.backgroundColor = '#999';
+                }
+            }
+            document.getElementById("search ").style.display = 'block';
+            document.querySelector('.cart-detail').style.display = 'block';
+            document.querySelectorAll(".cart-buttton-update ")[0].style.display = 'block';
+            document.querySelectorAll(".cart-buttton-update ")[1].innerHTML = "Cập nhật ";
+            document.querySelector('.cart-button-update-nth').style = 'display:flex; justify-content: space-between';
+            var list = document.querySelectorAll('.checkbox');
+            for (var item of list) {
+                item.style.display = 'none';
+            }
+            list = document.querySelectorAll('.edit');
+            for (var item of list) {
+                item.style.display = 'block';
+            }
+            document.querySelector('.modal-title').innerHTML = edit;
+            document.querySelector('.btn-product').value = "Edit ";
+        }
+
+        var cancel = document.querySelector('.close');
+        cancel.onclick = function() {
+            document.querySelector(".editEmployeeModal ").style.display = 'none';
+        }
+
+        var listButton = document.querySelectorAll('.cart-buttton-update');
+        listButton[0].onclick = Cancel;
+        listButton[1].onclick = Update;
+
+        function Cancel() {
+            if (confirm("Bạn muốn hủy cập nhật")) {
+                document.getElementById("search ").style.display = 'none';
+                document.querySelector('.cart-detail').style.display = 'none';
+                var list = selectorElement.querySelectorAll('.button-item');
+                for (var item of list) {
+                    item.style.backgroundColor = 'var(--primary-color)';
+                }
+            }
+        }
+
+        function Update() {
+            alert("Cập nhật thành công");
+            document.getElementById("search ").style.display = 'none';
+            document.querySelector('.cart-detail').style.display = 'none';
+            var list = selectorElement.querySelectorAll('.button-item');
+            for (var item of list) {
+                item.style.backgroundColor = 'var(--primary-color)';
+            }
+        }
+    }
+
+    function removeProduct(event) {
+        if (event.target.style.backgroundColor == 'var(--primary-color)') {
+            var list = selectorElement.querySelectorAll('.button-item');
+
+            for (var item of list) {
+                if (item != event.target) {
+                    item.style.backgroundColor = '#999';
+                }
+            }
+            document.getElementById("search ").style.display = 'block';
+            document.querySelector('.cart-detail').style.display = 'block';
+            document.querySelectorAll(".cart-buttton-update ")[1].innerHTML = "Xóa tất cả ";
+            document.querySelectorAll(".cart-buttton-update ")[0].style.display = 'none';
+            document.querySelector('.cart-button-update-nth').style = 'display:flex; justify-content: flex-end';
+            var list = document.querySelectorAll('.edit');
+            for (var item of list) {
+                item.style.display = 'none';
+            }
+            list = document.querySelectorAll('.checkbox');
+            for (var item of list) {
+                item.style.display = 'block';
+            }
+            var listButton = document.querySelectorAll('.cart-buttton-update');
+            listButton[1].onclick = Delete;
+
+            function Delete() {
+                if (confirm("Bạn chắc chắn xóa sản phẩm")) {
+                    alert("Xóa thành công");
+                    document.getElementById("search ").style.display = 'none';
+                    document.querySelector('.cart-detail').style.display = 'none';
+                    var list = selectorElement.querySelectorAll('.button-item');
+                    for (var item of list) {
+                        item.style.backgroundColor = 'var(--primary-color)';
+                    }
+                }
+            }
+        }
+    }
+}

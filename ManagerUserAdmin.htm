@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>GIỎ HÀNG</title>
+    <title>QUẢN LÝ USER</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="main.css">
@@ -12,6 +12,76 @@
 
 <body>
     <div class="app">
+        <div class="editEmployeeModal ">
+            <div class="modal-dialog ">
+                <div class="modal-content ">
+                    <div>
+                        <div class="modal-header ">
+                            <h4 class="modal-title ">Edit User</h4>
+                            <button type='submit' class="close " data-dismiss="modal " aria-hidden="true ">&times;</button>
+                        </div>
+                    </div>
+                    <form action="Load " method="post ">
+                        <div class="modal-body ">
+                            <div class="form-column-2">
+
+                                <div class="form-group " style="width: 49%;">
+                                    <label class="label ">ID</label>
+                                    <input value="1 " name="id " type="text " class="form-control " readonly required>
+                                </div>
+                                <div class="form-group " style="width: 49%;">
+                                    <label class="label ">Name</label>
+                                    <input value="Nguyễn Văn An " name="name " type="text " class="form-control " required>
+                                </div>
+                            </div>
+
+
+                            <div class="form-column-2">
+
+                                <div class="form-group " style="width: 49%;">
+                                    <label class="label "> UserName</label>
+                                    <input value="An Nguyễn " name="price " type="text " class="form-control " required>
+                                </div>
+                                <div class="form-group " style="width: 49%;">
+                                    <label class="label ">PassWord</label>
+                                    <input value="123456789 " name="color " type="text " class="form-control ">
+                                </div>
+                            </div>
+
+                            <div class="form-column-2">
+
+                                <div class="form-group " style="width: 49%;">
+                                    <label class="label ">Phone</label>
+                                    <input value="0987654321 " name="range_size " type="text " class="form-control ">
+                                </div>
+                                <div class="form-group " style="width: 49%;">
+                                    <label class="label ">Email</label>
+                                    <input value="annguyen2001@gmail.com" name="range_size " type="text " class="form-control ">
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="label ">Address</label>
+                                <textarea name="description " class="form-control " required rows='3'> Tòa B2 Học viện Bưu chính Viễn Thông, Phường Mỗ Lao, Quận Hà Đông , Tỉnh Hà Nội </textarea>
+                            </div>
+                            <div class="form-group ">
+                                <label class="label ">Role</label>
+                                <select name="category " class="form-select " aria-label="Default select example ">
+                                    <option value="1">Quản lý</option>
+                                    <option value="2">Nhân viên</option>
+                                    <option value="3">Khách hàng</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer ">
+                            <input type='submit' class="btn-product " value="Edit ">
+                            <input style="display: none " type='text' value="${index} " name="index ">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <header class="header">
             <div class="grid__full-width">
 
@@ -320,7 +390,7 @@
                             </a>
 
                             <a href=" " class="home-heading-btn ">
-                                 THÔNG BÁO
+                                 QUẢN LÝ SẢN PHẨM
                             </a>
 
                             <a href=" " class="home-heading-btn ">
@@ -341,192 +411,183 @@
 
         </header>
         <div class="container ">
-            <div class="modal_black "></div>
+            <div class="modal_black ">
+            </div>
 
             <div class="grid " style="width: 1150px; ">
                 <div class="grid__row ">
-                   <div class="cart ">
-                        <h1 class="cart-heading ">GIỎ HÀNG</h1>
-                        <div class="cart-detail ">
+                   <div class="cart " style="min-height: 400px; ">
+                        <h1 class="cart-heading ">QUẢN LÝ NGƯỜI DÙNG</h1>
+
+                        <div class="cart-heading-button ">
+                            <button class="button-item " onclick="addProduct() " style="background-color: var(--primary-color); color: var(--while-color); "> Thêm người dùng </button>
+                            <button class="button-item " onclick="editProduct() " style="background-color: var(--primary-color); color: var(--while-color); ">Sửa thông tin</button>
+                            <button class="button-item " onclick="removeProduct() " style="background-color: var(--primary-color); color: var(--while-color); ">Xóa tài khoản</button>
+                        </div>
+
+                        <h1 id="search " class="cart-heading " style="display: none; ">Kết quả tìm kiếm '   ' </h1>
+
+                        <div class="cart-detail " style="display: none; ">
                             <table class="cart-table ">
                                 <thead class="cart-table-head ">
                                     <th style="width: 7%; "></th>
-                                    <th style="width: 9%; "></th>
-                                    <th style="width: 42%; padding-left: 10px; ">Sản phẩm</th>
-                                    <th style="width: 14%; padding-left: 10px; ">Giá</th>
-                                    <th style="width: 14%; padding-left: 10px; ">Số lượng</th>
-                                    <th style="width: 14%; padding-left: 10px; ">Tạm tính</th>
+                                    <th style="width: 15%; padding-left: 10px; ">Name</th>
+                                    <th style="width: 16%;padding-left: 10px; ">UserName</th>
+                                    <th style="width: 17%; padding-left: 10px; ">PassWord</th>
+                                    <th style="width: 17%; padding-left: 10px; ">Phone</th>
+                                    <th style="width: 27%; padding-left: 10px; ">Address</th>
                                 </thead>
                                 <tbody>
-                                    <tr class="cart-table-tr ">
+                                    <tr class="cart-table-tr " style="min-height: 70px; ">
                                         <td class="cart-table-td ">
                                             <div class="cart-icon ">
-                                                <i class="fa fa-close cart-product-remove "></i>
-                                            </div>
-                                        </td>    
-                                        <td class="cart-table-td-img ">
-                                            <div class="cart-product-img ">
-                                                <img src="https://capvirgo.com/wp-content/uploads/2022/03/9d3769a0-300x300.jpg?v=1646130124 " style="width: 60px; ">
+                                                <i class='fas fa-highlighter edit' onclick='chooseProduct()'></i>
+                                                <input type='checkbox' class="checkbox ">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="cart-product ">
                                                 <div class="cart-product-link ">
-                                                    <span class="cart-product-link-name ">Sản phẩm:</span>
-                                                    <a href=" " class="cart-product-name ">Giày trẻ em Air Jordan 4 màu hồng</a>
-                                                </div>
-                                                <div class="cart-product-size ">
-                                                    <span class="cart-product-size-1 ">Size: </span>
-                                                    <span class="cart-product-size-2 ">29</span>
+                                                    <span class="cart-product-link-name ">Name:</span>
+                                                    <span class="cart-product-name ">Nguyễn Văn An</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Giá:</span>
-                                                <div class="cart-product-price ">
-                                                    <span>899.000</span>
-                                                    <span style="text-decoration: underline; ">đ</span>
+                                        <td class="cart-table-td " >
+                                            <div class="cart-product ">
+                                                <div class="cart-product-link ">
+                                                    <span class="cart-product-link-name ">UserName:</span>
+                                                    <span class="cart-product-name ">An Nguyễn</span>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Số lượng:</span>
-                                                <div class="cart-product-amount ">
-                                                    <input type='number' class="cart-product-input "  value='1' min='1' pattern='>0'>
-                                                    <div class="cart-product-button ">
-                                                        <input type = 'button' value='+'  class="cart-product-button-incre ">
-                                                        <input type = 'button' value='-'  class="cart-product-button-decre ">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </td>
-                                        <td>
-                                            <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Tạm tính:</span>
-                                                <div class="cart-product-price ">
-                                                    <span>899.000</span>
-                                                    <span style="text-decoration: underline; ">đ</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="cart-table-tr ">
-                                        <td class="cart-table-td ">
-                                            <div class="cart-icon ">
-                                                <i class="fa fa-close cart-product-remove "></i>
-                                            </div>
-                                        </td>    
-                                        <td class="cart-table-td-img ">
-                                            <div class="cart-product-img ">
-                                                <img src="https://capvirgo.com/wp-content/uploads/2022/03/9d3769a0-300x300.jpg?v=1646130124 " style="width: 60px; ">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="cart-product ">
                                                 <div class="cart-product-link ">
-                                                    <span class="cart-product-link-name ">Sản phẩm:</span>
-                                                    <a href=" " class="cart-product-name ">Giày trẻ em Air Jordan 4 màu hồng</a>
-                                                </div>
-                                                <div class="cart-product-size ">
-                                                    <span class="cart-product-size-1 ">Size: </span>
-                                                    <span class="cart-product-size-2 ">29</span>
+                                                    <span class="cart-product-link-name ">PassWord:</span>
+                                                    <span class="cart-product-name ">12345678</span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Giá:</span>
+                                                <span class="cart-product-price-nth-link ">Phone:</span>
                                                 <div class="cart-product-price ">
-                                                    <span>899.000</span>
-                                                    <span style="text-decoration: underline; ">đ</span>
+                                                    0978525442
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Số lượng:</span>
-                                                <div class="cart-product-amount ">
-                                                    <input type='number' class="cart-product-input "  value='1' min='1' pattern='>0'>
-                                                    <div class="cart-product-button ">
-                                                        <input type = 'button' value='+'  class="cart-product-button-incre ">
-                                                        <input type = 'button' value='-'  class="cart-product-button-decre ">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </td>
-                                        <td>
-                                            <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Tạm tính:</span>
+                                                <span class="cart-product-price-nth-link ">Addrress:</span>
                                                 <div class="cart-product-price ">
-                                                    <span>899.000</span>
-                                                    <span style="text-decoration: underline; ">đ</span>
+                                                   Tòa B2 Học viện Bưu chính Viễn Thông, Phường Mỗ Lao, Quận Hà Đông , Tỉnh Hà Nội
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="cart-table-tr ">
+                                    <tr class="cart-table-tr " style="min-height: 70px; ">
                                         <td class="cart-table-td ">
                                             <div class="cart-icon ">
-                                                <i class="fa fa-close cart-product-remove "></i>
-                                            </div>
-                                        </td>    
-                                        <td class="cart-table-td-img ">
-                                            <div class="cart-product-img ">
-                                                <img src="https://capvirgo.com/wp-content/uploads/2022/03/9d3769a0-300x300.jpg?v=1646130124 " style="width: 60px; ">
+                                                <i class='fas fa-highlighter edit' onclick='chooseProduct()'></i>
+                                                <input type='checkbox' class="checkbox ">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="cart-product ">
                                                 <div class="cart-product-link ">
-                                                    <span class="cart-product-link-name ">Sản phẩm:</span>
-                                                    <a href=" " class="cart-product-name ">Giày trẻ em Air Jordan 4 màu hồng</a>
+                                                    <span class="cart-product-link-name ">Name:</span>
+                                                    <span class="cart-product-name ">Nguyễn Văn An</span>
                                                 </div>
-                                                <div class="cart-product-size ">
-                                                    <span class="cart-product-size-1 ">Size: </span>
-                                                    <span class="cart-product-size-2 ">29</span>
+                                            </div>
+                                        </td>
+                                        <td class="cart-table-td " >
+                                            <div class="cart-product ">
+                                                <div class="cart-product-link ">
+                                                    <span class="cart-product-link-name ">UserName:</span>
+                                                    <span class="cart-product-name ">An Nguyễn</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td >
+                                            <div class="cart-product ">
+                                                <div class="cart-product-link ">
+                                                    <span class="cart-product-link-name ">PassWord:</span>
+                                                    <span class="cart-product-name ">12345678</span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Giá:</span>
+                                                <span class="cart-product-price-nth-link ">Phone:</span>
                                                 <div class="cart-product-price ">
-                                                    <span>899.000</span>
-                                                    <span style="text-decoration: underline; ">đ</span>
+                                                    0978525442
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Số lượng:</span>
-                                                <div class="cart-product-amount ">
-                                                    <input type='number' class="cart-product-input "  value='1' min='1' pattern='>0'>
-                                                    <div class="cart-product-button ">
-                                                        <input type = 'button' value='+'  class="cart-product-button-incre ">
-                                                        <input type = 'button' value='-'  class="cart-product-button-decre ">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </td>
-                                        <td>
-                                            <div class="cart-product-price-nth ">
-                                                <span class="cart-product-price-nth-link ">Tạm tính:</span>
+                                                <span class="cart-product-price-nth-link ">Addrress:</span>
                                                 <div class="cart-product-price ">
-                                                    <span>899.000</span>
-                                                    <span style="text-decoration: underline; ">đ</span>
+                                                   Tòa B2 Học viện Bưu chính Viễn Thông, Phường Mỗ Lao, Quận Hà Đông , Tỉnh Hà Nội
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td colspan="6 " style="text-align: end; border-bottom: 2px solid var(--border-color); "> 
-                                            <div class="cart-button-update-nth ">
-                                                <button class="cart-buttton-update ">Cập nhật giỏ hàng</button> 
+                                    
+                                    <tr class="cart-table-tr " style="min-height: 70px; ">
+                                        <td class="cart-table-td ">
+                                            <div class="cart-icon ">
+                                                <i class='fas fa-highlighter edit' onclick='chooseProduct()'></i>
+                                                <input type='checkbox' class="checkbox ">
+                                            </div>
+                                        </td>
+                                        <td >
+                                            <div class="cart-product ">
+                                                <div class="cart-product-link ">
+                                                    <span class="cart-product-link-name ">Name:</span>
+                                                    <span class="cart-product-name ">Nguyễn Văn An</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="cart-table-td " >
+                                            <div class="cart-product ">
+                                                <div class="cart-product-link ">
+                                                    <span class="cart-product-link-name ">UserName:</span>
+                                                    <span class="cart-product-name ">An Nguyễn</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td >
+                                            <div class="cart-product ">
+                                                <div class="cart-product-link ">
+                                                    <span class="cart-product-link-name ">PassWord:</span>
+                                                    <span class="cart-product-name ">12345678</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="cart-product-price-nth ">
+                                                <span class="cart-product-price-nth-link ">Phone:</span>
+                                                <div class="cart-product-price ">
+                                                    0978525442
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="cart-product-price-nth ">
+                                                <span class="cart-product-price-nth-link ">Addrress:</span>
+                                                <div class="cart-product-price ">
+                                                   Tòa B2 Học viện Bưu chính Viễn Thông, Phường Mỗ Lao, Quận Hà Đông , Tỉnh Hà Nội
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class ="row-last ">
+                                        <td colspan="6 " style="text-align:unset; border-bottom: 2px solid var(--border-color); "> 
+                                            <div class="cart-button-update-nth " style="display: flex;justify-content: space-evenly; ">
+                                                <button class="cart-buttton-update " >Hủy</button> 
+                                                <button class="cart-buttton-update " >Hủy</button> 
                                             </div>
                                         </td>
                                     </tr>
@@ -536,36 +597,6 @@
                    </div>
                 </div>
 
-                <div class="grid__row " style="display: flex; justify-content: flex-end; ">
-                    <div class="cart-pay ">
-                        <h2 class="cart-pay-heading ">CỘNG GIỎ HÀNG</h2>
-                        <table style="width: 100%; margin-bottom: 20px; border-spacing: 0; ">
-                            <tr>
-                                <td style="width: 50%; border-right: none;border-top: 2px solid var(--border-color); "> <span class="cart-pay-span ">Tạm tính </span></td>
-                                <td style="border-left: none; border-top: 2px solid var(--border-color); "> 
-                                    <div class="cart-product-price " style="color: var(--text-color); ">
-                                        <span>899.000</span>
-                                        <span style="text-decoration: underline; ">đ</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 50%; border-right: none; "> <span class="cart-pay-span ">Giao hàng </span></td>
-                                <td style="border-left: none; "> <span class="cart-pay-span " style="font-weight: 400; ">Phí vận chuyển sẽ tính sau </span></td>
-                            </tr>
-                            <tr>
-                                <td style="width: 50%; border-right: none; border-bottom: 2px solid var(--border-color); "> <span class="cart-pay-span ">Tổng </span></td>
-                                <td style="border-left: none; border-bottom: 2px solid var(--border-color); "> 
-                                    <div class="cart-product-price " style="color: var(--text-color); font-weight: 600; ">
-                                        <span>899.000</span>
-                                        <span style="text-decoration: underline; ">đ</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <a href=" " class="cart-pay-button ">Tiến hành Thanh toán</a>
-                    </div>
-                </div>
             </div>
         </div>
         <footer class="footer ">
@@ -665,6 +696,9 @@
     <script>
         var check = 0;
         var checkCategory=0;
+        var checkAdd =0;
+        var checkEdit =0;
+        var checkRemove =0;
         // Search('#header-seach')
         // Active('.home-filter')
         // Cart('.header__cart-list')
@@ -731,7 +765,14 @@
                     checkCategory=0;
                 }
             }
+
         }
+
+        function chooseProduct(){
+            document.querySelector(".editEmployeeModal ").style.display = 'block';
+        }
+
+        manager('.cart-heading-button','Add User','Edit User')
     </script>
 </body>
 

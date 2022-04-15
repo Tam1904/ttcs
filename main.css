@@ -352,7 +352,7 @@
 
 @media only screen and (max-width: 700px) {
     .header_seach-history {
-        width: 81.6%;
+        width: 85.7%;
     }
 }
 
@@ -481,6 +481,7 @@
 @media only screen and (max-width: 700px) {
     .header__seach {
         margin-bottom: 7px;
+        /* margin-top: 5px; */
     }
 }
 
@@ -583,6 +584,8 @@
         width: 20%;
         text-align: center;
         position: relative;
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
@@ -593,8 +596,8 @@
 }
 
 .header__cart-wrap {
-    width: 100%;
-    margin: auto;
+    /* width: 100%; */
+    /* margin: auto; */
     display: flex;
     align-items: center;
     padding: 10px 0;
@@ -605,13 +608,13 @@
     font-size: 1.4rem;
     text-transform: uppercase;
     margin-left: 10px;
-    color: var(--black-color);
+    color: var(--text-color);
     font-family: Tahoma, Arial, sans-serif;
 }
 
 .header_filter-background {
     background-color: var(--primary-color);
-    z-index: 1000;
+    z-index: 15;
     width: 100%;
 }
 
@@ -656,7 +659,7 @@
     width: 400px;
     display: none;
     border: 1px solid var(--border-color);
-    z-index: 1000;
+    z-index: 99;
 }
 
 .header__cart-no-cart {
@@ -938,6 +941,7 @@
 @media only screen and (max-width: 700px) {
     .home-heading-btn:hover {
         color: var(--black-color);
+        text-decoration: none;
     }
     .home__heading:hover {
         background-color: #584242;
@@ -948,6 +952,7 @@
     .home-heading-btn:hover {
         background-color: var(--while-color);
         color: var(--text-color);
+        text-decoration: none;
     }
 }
 
@@ -956,6 +961,10 @@
     position: relative;
     width: 100%;
     /* font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif; */
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .category {
@@ -973,7 +982,6 @@
     justify-content: flex-end;
     z-index: 1;
     width: 100%;
-    /* display: none; */
 }
 
 .category-nth-1 {
@@ -983,6 +991,12 @@
     z-index: 100;
     width: 100%;
     /* display: none; */
+}
+
+@media only screen and (min-width: 701px) and (max-width: 2000px) {
+    .category-nth {
+        width: 93%;
+    }
 }
 
 @media only screen and (max-width: 700px) {
