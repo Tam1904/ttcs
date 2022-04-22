@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" th:href="@{main.css}">
+    <link rel="stylesheet" th:href="@{base.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-login">
+            <form method="post" th:object="${account}" class="form-login-user">
+
+                <div class="form-login-span">
+                    <a href="/login" class="form-login-txt">Đăng nhập</a>
+                    <a class="form-signin-txt" style="color: var(--primary-color);">Đăng ký</a>
+                </div>
+                <input name = "username" type="text" class="form-login-username" th:value="${account.username}" placeholder="Nhập username" required>
+                <input name = "password" type="password" class="form-login-password" th:value="${account.password}"  placeholder="Nhập password" required>
+                <input name = "confirm" type="password" class="form-login-password" th:value="${account.confirm}" placeholder="Xác nhận password" required>
+                <div class="auth-form__aside">
+                    <p class="auth-form__policy-text">
+                        Bằng việc đăng ký, bạn đã đồng ý với trang web về
+                        <a  class="auth-form__text-link"> Điều
+                            khoản dịch vụ</a> &
+                        <a class="auth-form__text-link"> Chính
+                            sách bảo mật</a>
+                    </p>
+                </div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button class="form-login-button-login">Đăng ký</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

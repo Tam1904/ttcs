@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>TRANG CHỦ</title>
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css}">
+    <link rel="stylesheet" th:href="@{/base.css}">
+    <link rel="stylesheet" th:href="@{/main.css}">
+    <link rel="stylesheet" th:href="@{/main3.css}">
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css}">
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="grid__full-width">
+
+
+                <div class="header_navar-background">
+
+                    <nav class="header__navbar ">
+
+                        <span class="header__navbar--item-1">
+                            Trùm giày thể thao Adidas, Nike Kids - Capvirgo.com
+                        </span>
+
+
+                        <div class="header__navbar--phone">
+                            <div class="header__navbar--phone-item">
+                                <i class="fa-solid fa-phone header__navbar--img"></i>
+                            </div>
+                            <div class="header__navbar--phone-number">
+                                <span class="header__navbar--phone"> 0865.431.963</span>
+                            </div>
+                        </div>
+
+                        <ul class="header__navbar--list">
+                            <li class="header__navbar--item" style="margin-right: 15px;">
+                                Thứ 2-CN : 8h-21h30
+                            </li>
+                            <li class="header__navbar--item"><a href="/signin" style="color: var(--while-color);text-decoration: none;"> Đăng ký</a> </li>
+                            <li class="header__navbar--item" style="margin-left: 10px;"><a href="/login" style="color: var(--while-color);text-decoration: none;"> Đăng nhập</a></li>
+                            
+                        </ul>
+
+                    </nav>
+                </div>
+                <div class="header-with-seach-background">
+                    <div class="header-with-seach">
+                        <div class="header__logo">
+                            <img th:src="@{logo-3.png}" alt="" class="header__logo-img">
+                        </div>
+
+
+                        <div class="header__seach">
+                            <form action="" method="post" class="header__seach-wrap" id='header-seach'>
+                                <input type="text" class="header__seach-input" placeholder="Tìm kiếm sản phẩm">
+
+                                <div class="header_seach-history">
+                                    <h3 class="header__seach-history-heading">
+                                        Sản phẩm
+                                    </h3>
+                                    <ul class="header__seach-history-list">
+                                        <li class="header__seach-history-item">
+                                            <a  class="header__seach-history-item-link" title="Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1">
+
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/28482a09-300x300.jpg?v=1646128657}" alt="" class="header__seach-history-item-img">
+                                                <div class="header__seach-history-item-product">
+                                                    <span class="header__seach-history-item-product-name">
+                                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1
+                                                    </span>
+                                                    <div class="header__seach-history-item-product-price">
+                                                        <span>890.000</span>
+                                                        <span class="header__seach-history-item-product-price-item">đ</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="header__seach-history-item">
+                                            <a  class="header__seach-history-item-link" title="Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1">
+
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/28482a09-300x300.jpg?v=1646128657}" alt="" class="header__seach-history-item-img">
+                                                <div class="header__seach-history-item-product">
+                                                    <span class="header__seach-history-item-product-name">
+                                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1
+                                                    </span>
+                                                    <div class="header__seach-history-item-product-price">
+                                                        <span>890.000</span>
+                                                        <span class="header__seach-history-item-product-price-item">đ</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="header__seach-history-item">
+                                            <a  class="header__seach-history-item-link" title="Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1">
+
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/28482a09-300x300.jpg?v=1646128657}" alt="" class="header__seach-history-item-img">
+                                                <div class="header__seach-history-item-product">
+                                                    <span class="header__seach-history-item-product-name">
+                                                        Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1
+                                                    </span>
+                                                    <div class="header__seach-history-item-product-price">
+                                                        <span>890.000</span>
+                                                        <span class="header__seach-history-item-product-price-item">đ</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <button class="header__seach-btn">
+                                        Tìm kiếm
+                                    </button>
+                            </form>
+                        </div>
+
+
+
+                        <div class="header__cart">
+                            <div class="header__cart-wrap">
+                                <img th:src="@{icons8-cart-64.png}" style="width: 35px;">
+                                <span class="header__cart-wrap-icon">giỏ hàng của bạn</span>
+                                <div class="header__cart-list">
+                                    <!-- <span class="header__cart-list-no-cart-msg">Chưa có sản phẩm</span> -->
+
+                                    <h4 class="header_cart-heading">Sản phẩm đã thêm</h4>
+                                    <ul class="header_cart-list-item">
+                                        <li class="header_cart-item">
+                                            <img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970}" alt="" class="header_cart-img">
+                                            <div class="header_cart-item-info">
+
+                                                <div class="header_cart-item-head">
+                                                    <h5 class="header_cart-item-name">Giày trẻ em Air Jordan 4 màu hồng </h5>
+
+                                                    <div class="header_cart-item-price-wrap">
+                                                        <span class="header_cart-item-price">200.000đ</span>
+                                                        <span class="header_cart-item-multiply">x</span>
+                                                        <span class="header_cart-item-qbt">2</span>
+                                                    </div>
+                                                </div>
+                                                <div class="header_cart-item-body">
+
+
+                                                    <span class="header_cart-item-remove">Xóa</span>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+
+                                        <li class="header_cart-item">
+                                            <img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970}" alt="" class="header_cart-img">
+                                            <div class="header_cart-item-info">
+
+                                                <div class="header_cart-item-head">
+                                                    <h5 class="header_cart-item-name">Giày trẻ em Air Jordan 4 màu trắng sữa</h5>
+
+                                                    <div class="header_cart-item-price-wrap">
+                                                        <span class="header_cart-item-price">200.000đ</span>
+                                                        <span class="header_cart-item-multiply">x</span>
+                                                        <span class="header_cart-item-qbt">2</span>
+                                                    </div>
+                                                </div>
+                                                <div class="header_cart-item-body">
+
+
+                                                    <span class="header_cart-item-remove">Xóa</span>
+                                                </div>
+
+                                            </div>
+
+
+                                        </li>
+
+                                        <li class="header_cart-item">
+                                            <img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970}" alt="" class="header_cart-img">
+                                            <div class="header_cart-item-info">
+
+                                                <div class="header_cart-item-head">
+                                                    <h5 class="header_cart-item-name">Giày trẻ em adidas Superstar Shell Head dán dính trắng sọc xanh</h5>
+
+                                                    <div class="header_cart-item-price-wrap">
+                                                        <span class="header_cart-item-price">200.000đ</span>
+                                                        <span class="header_cart-item-multiply">x</span>
+                                                        <span class="header_cart-item-qbt">2</span>
+                                                    </div>
+                                                </div>
+                                                <div class="header_cart-item-body">
+
+                                                    <span class="header_cart-item-remove">Xóa</span>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+                                    <a  class="header_cart-view-cart btn btn--primary1">Xem giỏ hàng</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+             <div class="header_filter-background">
+
+                    <div class="header-filter">
+                        <div class="home-filter">
+
+                            <div class="home__heading " th:onclick="@{solveCategory()}">
+                                <h3 class="home-category "> DANH MỤC SẢN PHẨM</h3>
+                                <i class="home__heading-icon fas fa-bars "></i>
+                                <div class="grid__column-2-1 ">
+                                    <div class="category-nth-1 ">
+
+            
+                                        <ul class="category-list ">
+                                            <li class="category-item ">
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nam-icon.png}" class="category-item-img ">
+                                                <a  class="category-item__link ">
+                                                   Giày thể thao nam
+                                               </a>
+                                            </li>
+            
+                                            <li class="category-item ">
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nu-icon.png} " class="category-item-img ">
+                                                <a  class="category-item__link ">
+                                                   Giày thể thao nữ
+                                               </a>
+            
+                                            </li>
+            
+                                            <li class="category-item ">
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2017/11/adidas-icon.png}" class="category-item-img ">
+                                                <a  class="category-item__link ">
+                                                   Giày Adidas 
+                                               </a>
+            
+                                            </li>
+            
+                                            <li class="category-item ">
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2021/07/air-jordan-150x150.png}" class="category-item-img ">
+                                                <a  class="category-item__link ">
+                                                   Giày Bóng Rổ
+                                               </a>
+            
+                                            </li>
+            
+                                            <li class="category-item ">
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2021/01/hang_chinh_hang-150x150.jpg}" class="category-item-img ">
+                                                <a  class="category-item__link ">
+                                                   Giày chính hãng
+                                               </a>
+            
+                                            </li>
+            
+                                            <li class="category-item ">
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2020/11/giay-gia-tot.png}" class="category-item-img ">
+                                                <a  class="category-item__link ">
+                                                   Giá rẻ 
+                                               </a>
+            
+                                            </li>
+            
+                                           
+            
+                                            <li class="category-item ">
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2021/09/icon-quan-ao-tre-em-150x150.png} " class="category-item-img ">
+                                                <a  class="category-item__link ">
+                                                   Quần áo bóng đá
+                                               </a>
+            
+                                            </li>
+            
+                                          
+            
+                                            <li class="category-item ">
+                                                <img th:src="@{https://capvirgo.com/wp-content/uploads/2020/11/giay-tre-em-icon.png}" class="category-item-img ">
+                                                <a  class="category-item__link ">
+                                                   Giày thể thao trẻ em
+                                               </a>
+            
+                                            </li>
+            
+                                          
+            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a  class="home-heading-btn ">
+                                 TRANG CHỦ
+                            </a>
+
+                            <a  class="home-heading-btn ">
+                                 THÔNG BÁO
+                            </a>
+
+                            <a  class="home-heading-btn ">
+                                 XEM CÁC ĐƠN HÀNG
+                            </a>
+
+                            <div class="home__heading-menu " style="right: 0;cursor: pointer; " onclick="solve(this) ">
+                                <i class="home__heading-icon fas fa-bars " style="margin: 0 10px 0 10px; "></i>
+                                <h3 class="home-category "> MENU</h3>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+        </header>
+       	 <div class="container ">
+            <div class="modal_black ">
+            </div>
+
+            <div class="grid " style="width: 1150px; ">
+                <div class="grid__row ">
+                    <div class="wrapper ">
+                        <div id="page-wrapper ">
+                            <div id="page-inner ">
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        <h1 class="cart-heading ">TÀI KHOẢN CỦA BẠN</h1>
+                                    </div>
+                                </div>
+
+
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+
+                                        <div class="panel panel-default ">
+                                                <div class="modal-dialog " style="width: 100%; ">
+                                                    <div class="modal-content " style="box-shadow: none; border: none; ">
+                                                        <div>
+                                                            <div class="modal-header ">
+                                                                <h4 class="modal-title ">Edit Account</h4>
+                                                            </div>
+                                                        </div>
+                                                        <form method="post" th:object="${user}">
+                                                            <div class="modal-body ">
+                                                                <div class="form-column-2 ">
+                                    
+                                                                    <div class="form-group " style="width: 49%; ">
+                                                                        <label class="label ">Họ và Tên:</label>
+                                                                        <input th:value="${user.name}" name=" " type="text " class="form-control "  required>
+                                                                    </div>
+                                                                    <div class="form-group " style="width: 49%; ">
+                                                                        <label class="label ">Tên tài khoản:</label>
+                                                                        <input th:value="${user.username}" name="name " type="text " class="form-control " required>
+                                                                    </div>
+                                                                </div>
+                                    
+                                    
+                                                                <div class="form-column-2 ">
+                                    
+                                                                    <div class="form-group " style="width: 49%; ">
+                                                                        <label class="label ">Phone:</label>
+                                                                        <input th:value="${user.sodienthoai}" name="range_size " type="text " class="form-control ">
+                                                                    </div>
+                                                                    <div class="form-group " style="width: 49%; ">
+                                                                        <label class="label ">Email:</label>
+                                                                        <input th:value="${user.email}" name="range_size " type="text " class="form-control ">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group ">
+                                                                    <label class="label ">Address:</label>
+                                                                    <textarea th:value="${user.diachi}" name="description " class="form-control " required rows='3'>Tòa B2 Học viện Bưu chính Viễn Thông, Phường Mỗ Lao, Quận Hà Đông , Tỉnh Hà Nội </textarea>
+                                                                </div>
+                                    
+                                    
+                                                            </div>
+                                                            <div class="modal-footer ">
+                                                                <input type='submit' class="btn-product " value="Save ">
+                                                                <input type='reset' class="btn-product " value="Reset ">
+                                                                <input style="display: none " type='text' value="${index} " name="index ">
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+         <footer class="footer ">
+            <div class="grid ">
+                <div class="grid__row ">
+                    <div class="grid__column-2-5-nth ">
+                        <h3 class="footer_heding ">Chăm sóc khách hàng </h3>
+                        <ul class="footer-list ">
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Trung Tâm Trợ Giúp</a>
+
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Hướng Dẫn Mua Hàng</a>
+
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Vận Chuyển</a>
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Trả Hàng & Hoàn Tiền</a>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid__column-2-5-nth ">
+                        <h3 class="footer_heding ">Về shop </h3>
+                        <ul class="footer-list ">
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Giới Thiệu</a>
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Chính Sách Bảo Mật</a>
+
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Chính Hãng</a>
+
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Flash Sales</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid__column-2-5-nth ">
+                        <h3 class="footer_heding ">Danh mục </h3>
+                        <ul class="footer-list ">
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Sảm Phẩm Mới Nhất</a>
+
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Xả hàng</a>
+
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Ưu Đãi Khách Hàng</a>
+
+                            </li>
+                            <li class="footer-list-item ">
+                                <a href=" " class="footer-list-item-link ">Yêu Cầu Trợ Giúp</a>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid__column-2-5-nth ">
+                        <h3 class="footer_heding ">Theo dõi </h3>
+                        <ul class="footer-list ">
+                            <li class="footer-list-item ">
+                                <i class="footer-list-item-icon fab fa-facebook "></i>
+                                <a href=" " class="footer-list-item-link ">Facebook</a>
+                            </li>
+
+                            <li class="footer-list-item ">
+                                <i class="footer-list-item-icon fab fa-instagram-square "></i>
+                                <a href=" " class="footer-list-item-link ">Instagram</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="grid__full-width " >
+                <div class="footer__bottom ">
+                    <p class="footer__text "> 2022 - Bản quyền thuộc Cavirgo.com</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+	<script th:src="@{./index.js}"></script>
+    <script>
+    	ShowIndex('.home__heading','.home__heading-menu');
+        Category('.home__heading');
+        Sticky('.header_filter-background');
+        
+    </script>
+   
+</body>
+
+</html>
