@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>TRANG CHỦ</title>
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" th:href="@{/base.css}">
+	<link rel="stylesheet" th:href="@{/main.css}">
+	<link rel="stylesheet" th:href="@{/main3.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css}">
+</head>
+
+<body>
+	<div class="app">
+		<div th:include="@{/formProduct.html}"></div>
+		<div th:include="@{/headerProduct.html}"></div>
+		<div class="container ">
+			<div class="modal_black ">
+			</div>
+
+			<div class="grid " style="width: 1150px; ">
+				<div class="grid__row ">
+					<div class="cart " style="min-height: 400px; ">
+						<h1 class="cart-heading ">QUẢN LÝ SẢN PHẨM</h1>
+
+						<div class="cart-heading-button ">
+							<button class="button-item " onclick="addProduct() "
+								style="background-color: var(--primary-color); color: var(--while-color); "> Thêm sản
+								phẩm </button>
+							<button class="button-item " onclick="editProduct() "
+								style="background-color: var(--primary-color); color: var(--while-color); ">Sửa thông
+								tin</button>
+							<button class="button-item " onclick="removeProduct() "
+								style="background-color: var(--primary-color); color: var(--while-color); ">Xóa sản
+								phẩm</button>
+						</div>
+
+						<h1 id="search" class="cart-heading " style="display: none; ">Kết quả tìm kiếm ' ' </h1>
+
+						<div class="cart-detail " style="display: none; ">
+							<table class="cart-table ">
+								<thead class="cart-table-head ">
+									<th style="width: 7%; "></th>
+									<th style="width: 9%; "></th>
+									<th style="width: 42%; padding-left: 10px; ">Sản phẩm</th>
+									<th style="width: 21%; padding-left: 10px; ">Giá</th>
+									<th style="width: 21%; padding-left: 10px; ">Số lượng</th>
+								</thead>
+								<tbody>
+									<div th:each="product : ${products}">
+										<tr class="cart-table-tr ">
+											<td class="cart-table-td ">
+												<div class="cart-icon ">
+													<i id="icon" class='fas fa-highlighter edit'
+														th:onclick='chooseProduct(this)'></i>
+													<input type='checkbox' class="checkbox" th:value="${product.ma}">
+												</div>
+												<span id="ma" th:text="${product.ma}" style="display: none;"> </span>
+												<span id="mota" th:text="${product.mota}" style="display: none;">
+												</span>
+												<span id="typed" th:text="${product.typed}" style="display: none;">
+												</span>
+												<span id="thuonghieu" th:text="${product.thuonghieu}"
+													style="display: none;"> </span>
+												<span id="anh" th:text="${product.anh}" style="display: none;"> </span>
+											</td>
+											<td class="cart-table-td-img ">
+												<div class="cart-product-img ">
+													<img th:src="${product.token}" style="width: 60px; ">
+												</div>
+											</td>
+											<td>
+												<div class="cart-product ">
+													<div class="cart-product-link ">
+														<span class="cart-product-link-name ">Sản phẩm:</span>
+														<a id="ten" href=" " class="cart-product-name "
+															th:text="${product.ten}"></a>
+													</div>
+													<div class="cart-product-size ">
+														<span class="cart-product-size-1 ">Size: </span>
+														<span id="size" class="cart-product-size-2 "
+															th:text="${product.size}"></span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="cart-product-price-nth ">
+													<span class="cart-product-price-nth-link ">Giá:</span>
+													<div class="cart-product-price ">
+														<span id="dongia" th:text="${product.dongia}">899.000</span>
+														<span style="text-decoration: underline; ">đ</span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="cart-product-price-nth ">
+													<span class="cart-product-price-nth-link ">Số lượng:</span>
+													<div id="soluong" class="cart-product-price "
+														th:text="${product.soluong}">
+													</div>
+												</div>
+											</td>
+										</tr>
+									</div>
+
+								</tbody>
+								<tfoot>
+									<tr class="row-last ">
+										<td colspan="6 "
+											style="text-align:unset; border-bottom: 2px solid var(--border-color); ">
+											<div class="cart-button-update-nth "
+												style="display: flex;justify-content: flex-end; ">
+												<button class="cart-buttton-update " th:onclick="typed()">Quay
+													lại</button>
+											</div>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div th:include="@{/footer.html}"></div>
+	</div>
+	<script th:src="@{/index.js}"></script>
+	<script th:inline="javascript" type="text/javascript">
+		ShowIndex('.home__heading', '.home__heading-menu');
+		Category('.home__heading');
+		Sticky('.header_filter-background');
+		manager('.cart-heading-button', 'Add Product', 'Edit Product');
+		function solve() {
+			var form = document.querySelector(".formProduct");
+			var action = form.querySelector("#submit").value;
+			if (validate() == true) {
+
+				if (action === "Add") {
+					check();
+				}
+				else {
+					add()
+				}
+			}
+			else {
+				alert("Nhập lại thông tin");
+			}
+		}
+		function check() {
+			var form = document.querySelector(".formProduct");
+			var ma = form.querySelector("#ma").value;
+			var s;
+			$.ajax({
+				type: "GET",
+				url: "http://localhost:8080/managerProduct/checkProduct",
+				data: {
+					ma: ma
+				},
+				success: function (data) {
+					form.querySelector(".message").innerHTML = data;
+					s = data;
+					if (s === "") {
+						add();
+					}
+				}
+			});
+		}
+		function validate() {
+			var form = document.querySelector(".formProduct");
+			var ma = form.querySelector("#ma").value;
+			var ten = form.querySelector("#ten").value;
+			var soluong = form.querySelector("#soluong").value;
+			var dongia = form.querySelector("#dongia").value;
+			var mota = form.querySelector("#mota").value;
+			var thuonghieu = form.querySelector("#thuonghieu").value;
+			var typed = form.querySelector("#typed").value;
+			var anh = form.querySelector("#anh").value;
+			var size = form.querySelector("#size").value;
+			if (ma == "") {
+				console.log("ma")
+				return false;
+			}
+			if (ten == "") {
+				console.log("ten")
+				return false;
+			}
+			if (isNaN(soluong) == true) {
+				console.log("soluong")
+				return false;
+			}
+			if (isNaN(dongia) == true) {
+				console.log("dongia")
+				return false;
+			}
+			if (mota == "") {
+				console.log("mota")
+				return false;
+			}
+			if (thuonghieu == "") {
+				console.log("thuonghieu")
+				return false;
+			}
+			if (typed == "") {
+				console.log("typed")
+				return false;
+			}
+			if (size == "") {
+				console.log("size")
+				return false;
+			}
+			if (anh == "") {
+				console.log("anh")
+				return false;
+			}
+			return true;
+		}
+		function add() {
+			var form = document.querySelector(".formProduct");
+			var ma = form.querySelector("#ma").value;
+			var ten = form.querySelector("#ten").value;
+			var soluong = form.querySelector("#soluong").value;
+			var dongia = form.querySelector("#dongia").value;
+			var mota = form.querySelector("#mota").value;
+			var thuonghieu = form.querySelector("#thuonghieu").value;
+			var typed = form.querySelector("#typed").value;
+			var anh = form.querySelector("#anh").value;
+			var size = form.querySelector("#size").value;
+			var action = form.querySelector("#submit").value;
+			$.ajax({
+				type: "post",
+				url: "http://localhost:8080/managerProduct/addProduct",
+				data: {
+					ma: ma,
+					ten: ten,
+					soluong: soluong,
+					dongia: dongia,
+					mota: mota,
+					thuonghieu: thuonghieu,
+					typed: typed,
+					anh: anh,
+					size: size,
+					action: action
+				},
+				success: function () {
+					if (action === "Add") {
+						alert("Thêm sản phẩm thành công");
+						remove(".editEmployeeModal");
+						var list = document.querySelectorAll('.button-item');
+						for (var item of list) {
+							item.style.backgroundColor = 'var(--primary-color)';
+						}
+					}
+					else {
+						alert("Cập nhật sản phẩm thành công");
+						remove(".editEmployeeModal");
+						autoSearch();
+					}
+				}
+			});
+		}
+
+		function typed() {
+			var listButton = document.querySelector('.cart-buttton-update').innerHTML;
+			if (listButton == "Quay lại") {
+				document.getElementById("search").style.display = 'none';
+				document.querySelector('.cart-detail').style.display = 'none';
+				var list = document.querySelectorAll('.button-item');
+				for (var item of list) {
+					item.style.backgroundColor = 'var(--primary-color)';
+				}
+			}
+			else {
+				var listBox = document.querySelectorAll(".checkbox");
+				var s = "";
+				for (var box of listBox) {
+					if (box.checked == true) {
+						s += box.value + " ";
+					}
+				}
+				if (confirm("Bạn muốn xóa sản phẩm") == true) {
+
+					$.ajax({
+						type: "delete",
+						url: "http://localhost:8080/managerProduct/deleteProduct",
+						data: {
+							listma: s
+						},
+						success: function () {
+							alert("Xóa thành công");
+							autoSearch();
+							document.getElementById("search").style.display = 'none';
+							document.querySelector('.cart-detail').style.display = 'none';
+							var list = document.querySelectorAll('.button-item');
+							for (var item of list) {
+								item.style.backgroundColor = 'var(--primary-color)';
+							}
+						}
+					});
+				}
+			}
+		}
+
+		function autoSearch() {
+			var s= "";
+			s = document.querySelector(".header__seach-input").value;
+			document.getElementById("search").innerHTML = "Kết quả tìm kiếm ' " + s + " '";
+			$.ajax({
+				type: "get",
+				url: "http://localhost:8080/managerProduct/autosearchProduct",
+				data:{
+					text: s
+				},
+				dataType: "html",
+				success: function (data) {
+					document.querySelector("tbody").innerHTML = data
+				}
+
+			});
+		}
+		function autoSearchProduct(){
+			
+		}
+		function chooseProduct(event) {
+
+			function getParent(element, selector) {
+				while (element.parentElement) {
+					if (element.parentElement.matches(selector)) {
+						return element.parentElement;
+					}
+					element = element.parentElement;
+				}
+			}
+
+			document.querySelector(".editEmployeeModal ").style.display = 'block';
+			var parent = getParent(event, '.cart-table-tr');
+			console.log(parent)
+			var form = document.querySelector(".formProduct");
+			form.querySelector("#ma").value = parent.querySelector("#ma").innerHTML;
+			form.querySelector("#ten").value = parent.querySelector("#ten").innerHTML;
+			form.querySelector("#soluong").value = parent.querySelector("#soluong").innerHTML;
+			form.querySelector("#dongia").value = parent.querySelector("#dongia").innerHTML;
+			form.querySelector("#mota").value = parent.querySelector("#mota").innerHTML;
+			form.querySelector("#thuonghieu").value = parent.querySelector("#thuonghieu").innerHTML;
+			form.querySelector("#typed").value = parent.querySelector("#typed").innerHTML;
+			form.querySelector("#anh").value = parent.querySelector("#anh").innerHTML;
+			form.querySelector("#size").value = parent.querySelector("#size").innerHTML;
+		}
+
+	</script>
+
+</body>
+
+</html>

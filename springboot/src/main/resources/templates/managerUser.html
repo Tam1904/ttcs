@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>TRANG CHỦ</title>
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" th:href="@{/base.css}">
+	<link rel="stylesheet" th:href="@{/main.css}">
+	<link rel="stylesheet" th:href="@{/main3.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css}">
+</head>
+
+<body>
+	<div class="app">
+		<div th:include="@{/formUser.html}"></div>
+		<div th:include="@{/headerUser.html}"></div>
+		<div class=" container ">
+			<div class=" modal_black ">
+			</div>
+
+			<div class=" grid " style=" width: 1150px; ">
+				<div class=" grid__row ">
+					<div class=" cart " style=" min-height: 400px; ">
+						<h1 class=" cart-heading ">QUẢN LÝ NGƯỜI DÙNG</h1>
+
+						<div class=" cart-heading-button ">
+							<button class=" button-item "style=" background-color:
+								var(--primary-color); color: var(--while-color); "> Thêm người dùng </button>
+							<button class=" button-item "  style=" background-color:
+								var(--primary-color); color: var(--while-color); ">Sửa thông tin</button>
+							<button class=" button-item "  style=" background-color:
+								var(--primary-color); color: var(--while-color); ">Xóa tài khoản</button>
+						</div>
+
+						<h1 id="search" class=" cart-heading " style=" display: none; ">Kết quả tìm kiếm ' ' </h1>
+
+						<div class=" cart-detail " style=" display: none; ">
+							<table class=" cart-table ">
+								<thead class=" cart-table-head ">
+									<th style=" width: 7%; "></th>
+									<th style=" width: 15%; padding-left: 10px; ">Name</th>
+									<th style=" width: 16%;padding-left: 10px; ">UserName</th>
+									<th style=" width: 17%; padding-left: 10px; ">PassWord</th>
+									<th style=" width: 17%; padding-left: 10px; ">Phone</th>
+									<th style=" width: 27%; padding-left: 10px; ">Address</th>
+								</thead>
+								<tbody>
+									<div th:each="user: ${users}">
+
+										<tr class=" cart-table-tr " style=" min-height: 70px; ">
+											<td class=" cart-table-td ">
+												<div class=" cart-icon ">
+													<i class='fas fa-highlighter edit' onclick='chooseUser(this)'></i>
+													<input type='checkbox' class="checkbox" th:value="${user.ma}">
+													<span id="ma" th:text="${user.ma}" style="display: none;">
+													</span>
+													<span id="email" th:text="${user.email}" style="display: none;">
+													</span>
+													<span id="typed" th:text="${user.typed}" style="display: none;">
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class=" cart-product ">
+													<div class=" cart-product-link ">
+														<span class="cart-product-link-name ">Name:</span>
+														<span id="ten" class="cart-product-name "
+															th:text="${user.ten}"></span>
+													</div>
+												</div>
+											</td>
+											<td class=" cart-table-td ">
+												<div class=" cart-product ">
+													<div class=" cart-product-link ">
+														<span class=" cart-product-link-name ">UserName:</span>
+														<span class=" cart-product-name " id="username"
+															th:text="${user.username}"></span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class=" cart-product ">
+													<div class=" cart-product-link ">
+														<span class=" cart-product-link-name ">PassWord:</span>
+														<span id="pass" class=" cart-product-name "
+															th:text="${user.pass}"></span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class=" cart-product-price-nth ">
+													<span class=" cart-product-price-nth-link ">Phone:</span>
+													<div id="sodienthoai" class=" cart-product-price "
+														th:text="${user.sodienthoai}"></div>
+												</div>
+											</td>
+											<td>
+												<div class=" cart-product-price-nth ">
+													<span class=" cart-product-price-nth-link ">Addrress:</span>
+													<div id="diachi" class=" cart-product-price "
+														th:text="${user.diachi}"></div>
+												</div>
+											</td>
+										</tr>
+									</div>
+
+								</tbody>
+								<tfoot>
+									<tr class=" row-last ">
+										<td colspan=" 6 " style=" text-align:unset; border-bottom: 2px solid
+																	var(--border-color); ">
+											<div class=" cart-button-update-nth " style=" display:
+																	flex;justify-content: flex-end; ">
+												<button th:onclick="typed()" class=" cart-buttton-update ">Hủy</button>
+
+											</div>
+										</td>
+									</tr>
+
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div th:include="@{/footer.html}"></div>
+	</div>
+
+	<script th:src="@{/index.js}"></script>
+	<script>
+
+		Category('.home__heading')
+
+		Sticky('.header_filter-background')
+
+		function chooseUser(event) {
+
+			function getParent(element, selector) {
+				while (element.parentElement) {
+					if (element.parentElement.matches(selector)) {
+						return element.parentElement;
+					}
+					element = element.parentElement;
+				}
+			}
+
+			document.querySelector(".editEmployeeModal").style.display = 'block';
+			var parent = getParent(event, '.cart-table-tr');
+			var form = document.querySelector(".formUser");
+			form.querySelector("#ma").value = parent.querySelector("#ma").innerHTML;
+			form.querySelector("#ten").value = parent.querySelector("#ten").innerHTML;
+			form.querySelector("#username").value = parent.querySelector("#username").innerHTML;
+			form.querySelector("#pass").value = parent.querySelector("#pass").innerHTML;
+			form.querySelector("#diachi").value = parent.querySelector("#diachi").innerHTML;
+			form.querySelector("#sodienthoai").value = parent.querySelector("#sodienthoai").innerHTML;
+			form.querySelector("#typed").value = parent.querySelector("#typed").innerHTML;
+			form.querySelector("#email").value = parent.querySelector("#email").innerHTML;
+		}
+
+
+		function solve() {
+			var form = document.querySelector(".formUser");
+			var action = form.querySelector("#submit").value;
+			if (validate() == true) {
+
+				if (action === "Add") {
+					check();
+				}
+				else {
+					add()
+				}
+			}
+			else {
+				alert("Nhập chính xác thông tin");
+			}
+		}
+		function check() {
+			var form = document.querySelector(".formUser");
+			var username = form.querySelector("#username").value;
+			var s;
+			$.ajax({
+				type: "GET",
+				url: "http://localhost:8080/managerUser/checkUser",
+				data: {
+					username: username
+				},
+				success: function (data) {
+					form.querySelector(".message").innerHTML = data;
+					s = data;
+					if (s === "") {
+						add();
+					}
+				}
+			});
+		}
+		function validate() {
+			var form = document.querySelector(".formUser");
+			var ma = form.querySelector("#ma").value;
+			var ten = form.querySelector("#ten").value;
+			var username = form.querySelector("#username").value;
+			var pass = form.querySelector("#pass").value;
+			var sodienthoai = form.querySelector("#sodienthoai").value;
+			var diachi = form.querySelector("#diachi").value;
+			var email = form.querySelector("#email").value;
+			var typed = form.querySelector("#typed").value;
+			if (ten == "") {
+				return false;
+			}
+			if (isNaN(sodienthoai) == true) {
+				return false;
+			}
+			if (username == "") {
+				return false;
+			}
+			if (pass == "") {
+				return false;
+			}
+			if (email == "") {
+				return false;
+			}
+			if (diachi == "") {
+				return false;
+			}
+			if (typed == "") {
+				return false;
+			}
+			return true;
+		}
+		function add() {
+			var form = document.querySelector(".formUser");
+			var ma = form.querySelector("#ma").value.trim();
+			var ten = form.querySelector("#ten").value;
+			var username = form.querySelector("#username").value;
+			var pass = form.querySelector("#pass").value;
+			var sodienthoai = form.querySelector("#sodienthoai").value;
+			var diachi = form.querySelector("#diachi").value;
+			var email = form.querySelector("#email").value;
+			var typed = form.querySelector("#typed").value;
+			var action = form.querySelector("#submit").value;
+			$.ajax({
+				type: "post",
+				url: "http://localhost:8080/managerUser/addUser",
+				data: {
+					ma: ma,
+					ten: ten,
+					username: username,
+					pass: pass,
+					sodienthoai: sodienthoai,
+					diachi: diachi,
+					email: email,
+					typed: typed,
+					action: action
+				},
+				success: function () {
+					if (action === "Add") {
+						alert("Thêm người dùng thành công");
+						remove(".editEmployeeModal");
+						var list = document.querySelectorAll('.button-item');
+						for (var item of list) {
+							item.style.backgroundColor = 'var(--primary-color)';
+						}
+						autoSearch();
+					}
+					else {
+						alert("Cập nhật người dùng thành công");
+						remove(".editEmployeeModal");
+						autoSearch();
+					}
+				}
+			});
+		}
+
+		function typed() {
+			var listButton = document.querySelector('.cart-buttton-update').innerHTML;
+			if (listButton == "Quay lại") {
+				document.getElementById("search").style.display = 'none';
+				document.querySelector('.cart-detail').style.display = 'none';
+				var list = document.querySelectorAll('.button-item');
+				for (var item of list) {
+					item.style.backgroundColor = 'var(--primary-color)';
+				}
+			}
+			else {
+				var listBox = document.querySelectorAll(".checkbox");
+				var s = "";
+				for (var box of listBox) {
+					if (box.checked == true) {
+						s += box.value + " ";
+					}
+				}
+				if (s != "") {
+
+					if (confirm("Bạn muốn xóa người dùng") == true) {
+
+						$.ajax({
+							type: "delete",
+							url: "http://localhost:8080/managerUser/deleteUser",
+							data: {
+								listma: s
+							},
+							success: function () {
+								alert("Xóa thành công");
+								autoSearch();
+								document.getElementById("search").style.display = 'none';
+								document.querySelector('.cart-detail').style.display = 'none';
+								var list = document.querySelectorAll('.button-item');
+								for (var item of list) {
+									item.style.backgroundColor = 'var(--primary-color)';
+								}
+							}
+						});
+					}
+				}
+				else{
+					
+					document.getElementById("search").style.display = 'none';
+					document.querySelector('.cart-detail').style.display = 'none';
+					var list = document.querySelectorAll('.button-item');
+					for (var item of list) {
+						item.style.backgroundColor = 'var(--primary-color)';
+					}
+				}
+			}
+		}
+
+		function autoSearch() {
+			var s= "";
+			s = document.querySelector(".header__seach-input").value;
+			document.getElementById("search").innerHTML = "Kết quả tìm kiếm ' " + s + " '";
+			$.ajax({
+				type: "get",
+				url: "http://localhost:8080/managerUser/autosearchUser",
+				data: {
+					text: s
+				},
+				dataType: "html",
+				success: function (data) {
+					document.querySelector("tbody").innerHTML = data
+				}
+
+			});
+		}
+		manager('.cart-heading-button', 'Add User', 'Edit User')
+	</script>
+</body>
+
+</html>

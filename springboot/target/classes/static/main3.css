@@ -640,7 +640,7 @@ EDIT PRODUCT
     min-width: 400px;
     /* background-color: aqua; */
     right: 10%;
-    top: 5%;
+    top: 2%;
     background-color: #fff;
     border-radius: 4px;
     display: none;
@@ -714,7 +714,7 @@ EDIT PRODUCT
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 11px;
 }
 
 .form-select {
