@@ -65,7 +65,7 @@ public class ProductController {
 	
 	@DeleteMapping("/deleteProduct")
 	public ResponseEntity<String> delete(@ModelAttribute("listma")String listma) {
-		String [] list = listma.trim().split("\\s+");
+		String [] list = listma.trim().split("s+");
 		for(int i=0;i<list.length;i++) {
 			pDao.removeProduct(list[i]);
 		}
@@ -73,52 +73,61 @@ public class ProductController {
 	}
 	
 	@GetMapping("/autosearchProduct")
-	public ResponseEntity<String> findList(@ModelAttribute("text")String text){
+	public ResponseEntity<String> findList(@ModelAttribute("text")String text, @ModelAttribute("typed") String typed){
 		String s = "";
 		List<Product> products = pDao.search(text);
 		for(Product p : products) {
-			s+="<tr class=\"cart-table-tr \">"
-					+ "											<td class=\"cart-table-td \">"
-					+ "												<div class=\"cart-icon \">"
-					+ "													<i id=\"icon\" class='fas fa-highlighter edit' onclick='chooseProduct(this)'></i>"
-					+ "													<input type='checkbox' class=\"checkbox \" value= " + p.getMa()+ ">"
-					+ "												</div>"
-					+ "												<span id=\"ma\"  style=\"display: none;\"> " + p.getMa()  + " </span>"
-					+ "												<span id=\"mota\"  style=\"display: none;\">" + p.getMota() + "</span>"
-					+ "												<span id=\"typed\"  style=\"display: none;\">"  + p.getTyped() + "</span>"
-					+ "												<span id=\"thuonghieu\" style=\"display: none;\"> " + p.getThuonghieu() + " </span>"
-					+ "												<span id=\"anh\"  style=\"display: none;\"> " + p.getAnh()  + "</span>"
+			s+="<tr class='cart-table-tr'>"
+					+ "<td class='cart-table-td '>";
+			if(typed.equals("Quay lại")) {
+				s+="<div class='cart-icon '>"
+						+ "<i id='icon' class='fas fa-highlighter edit' onclick='chooseProduct(this)'></i>"
+						+ "<input type='checkbox' class='checkbox ' value= " + p.getMa()+ ">"
+						+ "</div>";
+			}
+			else {
+				s+="<div class='cart-icon '>"
+						+ "<i id='icon' class='fas fa-highlighter edit' onclick='chooseProduct(this)' style ='display:none'></i>"
+						+ "<input type='checkbox' class='checkbox ' value= " + p.getMa()+ " style='display:block' >"
+						+ "</div>";
+			}
+					
+					s += "												<span id='ma'  style='display: none;'> " + p.getMa()  + " </span>"
+					+ "												<span id='mota'  style='display: none;'>" + p.getMota() + "</span>"
+					+ "												<span id='typed'  style='display: none;'>"  + p.getTyped() + "</span>"
+					+ "												<span id='thuonghieu' style='display: none;'> " + p.getThuonghieu() + " </span>"
+					+ "												<span id='anh'  style='display: none;'> " + p.getAnh()  + "</span>"
 					+ "											</td>"
-					+ "											<td class=\"cart-table-td-img \">"
-					+ "												<div class=\"cart-product-img \">"
-					+ "													<img src= " + p.getToken()  + "  style=\"width: 60px; \">"
-					+ "												</div>"
-					+ "											</td>"
-					+ "											<td>"
-					+ "												<div class=\"cart-product \">"
-					+ "													<div class=\"cart-product-link \">"
-					+ "														<span class=\"cart-product-link-name \">Sản phẩm:</span>"
-					+ "														<a id=\"ten\" href=\" \" class=\"cart-product-name \" >" + p.getTen()  +"</a>"
-					+ "													</div>"
-					+ "													<div class=\"cart-product-size \">"
-					+ "														<span class=\"cart-product-size-1 \">Size: </span>"
-					+ "														<span id=\"size\" class=\"cart-product-size-2 \"> " + p.getSize()  +" </span>"
-					+ "													</div>"
+					+ "											<td class='cart-table-td-img '>"
+					+ "												<div class='cart-product-img '>"
+					+ "													<img src= " + p.getToken()  + "  style='width: 60px; '>"
 					+ "												</div>"
 					+ "											</td>"
 					+ "											<td>"
-					+ "												<div class=\"cart-product-price-nth \">"
-					+ "													<span class=\"cart-product-price-nth-link \">Giá:</span>"
-					+ "													<div class=\"cart-product-price \">"
-					+ "														<span id=\"dongia\" > " + p.getDongia()  + "</span>"
-					+ "														<span style=\"text-decoration: underline; \">đ</span>"
+					+ "												<div class='cart-product '>"
+					+ "													<div class='cart-product-link '>"
+					+ "														<span class='cart-product-link-name '>Sản phẩm:</span>"
+					+ "														<a id='ten' href=' ' class='cart-product-name ' >" + p.getTen()  +"</a>"
+					+ "													</div>"
+					+ "													<div class='cart-product-size '>"
+					+ "														<span class='cart-product-size-1 '>Size: </span>"
+					+ "														<span id='size' class='cart-product-size-2 '> " + p.getSize()  +" </span>"
 					+ "													</div>"
 					+ "												</div>"
 					+ "											</td>"
 					+ "											<td>"
-					+ "												<div class=\"cart-product-price-nth \">"
-					+ "													<span class=\"cart-product-price-nth-link \">Số lượng:</span>"
-					+ "													<div id=\"soluong\" class=\"cart-product-price \">" + p.getSoluong() + "</div>" 
+					+ "												<div class='cart-product-price-nth '>"
+					+ "													<span class='cart-product-price-nth-link '>Giá:</span>"
+					+ "													<div class='cart-product-price '>"
+					+ "														<span id='dongia' > " + p.getDongia()  + "</span>"
+					+ "														<span style='text-decoration: underline; '>đ</span>"
+					+ "													</div>"
+					+ "												</div>"
+					+ "											</td>"
+					+ "											<td>"
+					+ "												<div class='cart-product-price-nth '>"
+					+ "													<span class='cart-product-price-nth-link '>Số lượng:</span>"
+					+ "													<div id='soluong' class='cart-product-price '>" + p.getSoluong() + "</div>" 
 					+ "												</div>"
 					+ "											</td>"
 					+ "										</tr>";
@@ -127,4 +136,6 @@ public class ProductController {
 		
 		return new ResponseEntity<>(s,HttpStatus.OK);
 	}
+	
+	
 }

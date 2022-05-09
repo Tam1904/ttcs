@@ -69,17 +69,21 @@
 																		class="form-control " required>
 																</div>
 																<div class="form-group " style="width: 49%; ">
-																	<label class="label ">Email:</label>
-																	<input th:value="${session.user.email}" name="email"
-																		type="text " class="form-control " required>
+																	<label class="label ">Password:</label>
+																	<input th:value="${session.user.pass}" name="pass"
+																		type="text" class="form-control " required>
 																</div>
 															</div>
+															<div class="form-group " style="width: 100%; ">
+																	<label class="label ">Email:</label>
+																	<input th:value="${session.user.email}" name="email"
+																		type="email" class="form-control " required>
+																</div>
 															<div class="form-group ">
 																<label class="label ">Address:</label>
 																<textarea th:text="${session.user.diachi}" name="diachi"
 																	class="form-control " rows='3' required></textarea>
 															</div>
-
 
 														</div>
 														<div class="modal-footer ">

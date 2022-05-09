@@ -21,8 +21,14 @@
                     <a class="form-signin-txt" style="color: var(--primary-color);">Đăng ký</a>
                 </div>
                 <input name = "username" type="text" class="form-login-username" th:value="${account.username}" placeholder="Nhập username" required>
+                <th:block th:if="${exits!=null && !exits.isEmpty()}">
+	                <span class="auth-form-message" th:text="${exits}"></span>
+                </th:block>
                 <input name = "password" type="password" class="form-login-password" th:value="${account.password}"  placeholder="Nhập password" required>
                 <input name = "confirm" type="password" class="form-login-password" th:value="${account.confirm}" placeholder="Xác nhận password" required>
+                <th:block th:if="${messOne!=null && !messOne.isEmpty()}">
+	                <span class="auth-form-message" th:text="${messOne}"></span>
+                </th:block>
                 <div class="auth-form__aside">
                     <p class="auth-form__policy-text">
                         Bằng việc đăng ký, bạn đã đồng ý với trang web về

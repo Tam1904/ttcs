@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>TRANG CHỦ</title>
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css}">
+	<link rel="stylesheet" th:href="@{/base.css}">
+	<link rel="stylesheet" th:href="@{/main.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css}">
+</head>
+
+<body>
+	<div class="app">
+		<div th:include="@{/header.html}"></div>
+		<div class=" container ">
+			<div class=" modal_black "></div>
+			<div class=" grid ">
+				<div class=" grid__row ">
+					<div class=" grid__column-10 ">
+
+						<div class=" home-product ">
+							<!-- nguyên tắc grid - row - column  -->
+							<div class="grid__row ">
+								<div class="grid__row-title ">
+									<h3 class="grid__row-title-name " style="text-transform: uppercase;"
+										th:text="${session.type}"></h3>
+									<!-- <a  class="grid__row-title-link ">Xem thêm</a> -->
+								</div>
+								<th:block th:each="product : ${products}">
+
+									<div class="grid__column-2-5 ">
+										<div class="home-product-item ">
+											<img th:src="${product.token}" class="home-product-item-img ">
+											<div class="home-product-item__origin ">
+												<a th:href="@{/detailProduct(ma=${product.ma})}"
+													class="home-product-item__origin-brand ">Mua ngay</a>
+											</div>
+											<h4 class="home-product-item-name " th:text="${product.ten}"></h4>
+											<div class="home-product-item-price ">
+												<div class="home-product-item-price-current ">
+													<span th:text="${product.format}"></span>
+													<span style="text-decoration: underline; ">đ</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</th:block>
+							</div>
+						</div>
+
+
+					</div>
+					<div class="grid__column-2 ">
+						<nav class="category-nth ">
+
+							<div class="category-img ">
+								<div class="category-img-item ">
+									<div class="category-img-item-1 category-img-item-phone ">
+										<a href=" " class="category-img-link-img ">
+											<img th:src="@{/phone.png}"  class="category-img-link-phone ">
+										</a>
+									</div>
+
+									<div
+										class="category-img-link-hover category-img-item-phone category-img-link-hover1 ">
+										<h3 class="category-img-link-heading ">
+											Hotline
+										</h3>
+									</div>
+								</div>
+								<div class="category-img-item ">
+									<div class="category-img-item-1 category-img-item-meg ">
+										<a href=" " class="category-img-link-img ">
+											<img th:src="@{/meg.png}"  class="category-img-link ">
+										</a>
+									</div>
+
+									<div
+										class="category-img-link-hover category-img-item-meg category-img-link-hover2 ">
+										<h3 class="category-img-link-heading ">
+											Facebook
+										</h3>
+									</div>
+								</div>
+
+								<div class="category-img-item ">
+									<div class="category-img-item-1 ">
+										<a href=" " class="category-img-link-img ">
+											<img th:src="@{/zalo-1.png}" class="category-img-link ">
+										</a>
+									</div>
+
+									<div class="category-img-link-hover category-img-link-hover3 ">
+										<h3 class="category-img-link-heading ">
+											Zalo
+										</h3>
+									</div>
+								</div>
+							</div>
+
+							<div class="category-money ">
+								<span class="category-money-item "> LỌC THEO GIÁ</span>
+								<form th:action="@{/typeProduct/filterMoney}" class='category-money-choose'
+									method="post">
+								<!--<form th:action="@{/test}" class='category-money-choose'
+									method="get">
+-->
+									<label for="cars " class='category-money-choose-lable'>CHỌN GIÁ TIỀN:</label>
+									<select name="moneyFind" class="category-money-choose-shoes " >
+										<option th:value="${money}" th:text="${money}" selected="selected" hidden ></option>
+										<option value="Từ 0-5.000.000 đ">Từ 0-5.000.000 đ</option>
+										<option value="Dưới 500.000 đ">Dưới 500.000 đ</option>
+										<option value="Từ 500.000 đ đến 1.000.000 đ">Từ 500.000 đ đến 1.000.000 đ</option>
+										<option value="Từ 1.000.000 đ đến 2.000.000 đ">Từ 1.000.000 đ đến 2.000.000 đ</option>
+										<option value="Trên 2.000.000 đ">Trên 2.000.000 đ</option>
+									</select>
+									<br><br>
+									<input type='submit' value="LỌC" class="category-money-choose-submit ">
+								</form>
+							</div>
+
+							<div class="category-trademark ">
+								<span class="category-trademark-item "> THƯƠNG HIỆU</span>
+								<form th:action="@{/typeProduct/filterTrandeMark}" class='category-trademark-choose' method="post">
+								<!--<form th:action="@{/test3}" class='category-trademark-choose' method="post">-->
+									<input type="hidden" name="money" th:value="${money}">
+									<input  name='thuonghieu' type='hidden' class="category-trademark-choose-box " value="null" >
+									<th:block th:each="mapType:${map}">
+										<div class="category-trademark-item1 ">
+											<th:block th:if="${choice}==${mapType.key}">
+												<input  checked name='thuonghieu' type='radio' class="category-trademark-choose-box " th:value="${mapType.key}" required>
+											</th:block>
+											<th:block th:if="${choice}!=${mapType.key}">
+												<input  name='thuonghieu' type='radio' class="category-trademark-choose-box " th:value="${mapType.key}" required>
+											</th:block>
+											<span class="category-trademark-choose-item "
+												th:text="${mapType.key}"></span>
+											<span class="category-trademark-choose-item1 ">(</span>
+											<span class="category-trademark-choose-item1"
+												th:text="${mapType.value}"></span>
+											<span class="category-trademark-choose-item1 ">)</span>
+										</div>
+									</th:block>
+									<input type='submit' value="LỌC " class="category-money-choose-submit-1 ">
+								</form>
+
+							</div>
+
+						</nav>
+						<div class="top-product ">
+							<header class="top-product-heading "
+								style="background-color: #f5f5f5; border-bottom: 1px dashed var(--border-color); ">
+								<h3 class="top-product-h3 "
+									style="color: var(--text-color); font-size: 1.5rem;font-weight: 500; ">
+									GIÀY ĐẸP CỦA BẠN
+								</h3>
+							</header>
+							<ul class="top-product-list ">
+								<th:block th:each="top:${session.top}">
+									<li class="top-product-list-item ">
+										<div class="top-product-list-item-1 ">
+											<a th:href="@{/detailProduct(ma=${top.ma})}" class="top-product-list-name " th:text="${top.ten}">
+											</a>
+											<a th:href="@{/detailProduct(ma=${top.ma})}" class="top-product-list-link-img ">
+												<img th:src="${top.token}" class="top-product-list-item-img ">
+											</a>
+										</div>
+										<div class="top-product-list-item-price "
+											style="display: flex; align-items: center; ">
+											<span th:text="${top.format}"></span>
+											<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
+										</div>
+									</li>
+								</th:block>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:include="@{/footer.html}"></div>
+	</div>
+	<script th:src="@{/index.js}"></script>
+	<script>
+		ShowIndex('.home__heading', '.home__heading-menu');
+		Category('.home__heading');
+		Sticky('.header_filter-background');
+
+	</script>
+
+</body>
+
+</html>

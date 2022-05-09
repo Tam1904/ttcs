@@ -124,21 +124,6 @@ function ViewImage(selector) {
 					imageBig.style.transition = "all " + 0.5 * 2 / (index + 1) + "s ease-in-out";
 				} else {
 					index += 1;
-					// var listImg = document.querySelectorAll(".img-item-img");
-					// for (var img of listImg) {
-					// if (img.src === event.target.src) {
-					//     img.style.opacity = '1';
-					// } else {
-					//     img.style.opacity = '0';
-
-					// }
-					// if (img.src === event.target.src) {
-					//     img.style.display = 'block';
-					// } else {
-					//     img.style.display = 'none';
-
-					// }
-					//}
 				}
 			}
 		}
@@ -159,7 +144,7 @@ function ChooseSize(selector) {
 			}
 			event.target.style.border = '2px solid var(--black-color)';
 			document.querySelector(".btn--primary2").style.background = 'var(--primary-color)';
-
+			document.querySelector("#size").value=event.target.innerHTML;
 		}
 
 
@@ -238,13 +223,11 @@ function manager(selector, add, edit) {
 					item.style.backgroundColor = '#999';
 				}
 			}
-			console.log(event.target.innerHTML)
 			document.getElementById("search").style.display = 'none';
 			document.querySelector(".editEmployeeModal ").style.display = 'block';
 			document.querySelector('.cart-detail').style.display = 'none';
 			document.querySelector('.modal-title').innerHTML = add;
 			document.querySelector('.btn-product').value = "Add";
-			console.log(event.target.innerHTML)
 			if (event.target.innerHTML === " Thêm người dùng ") {
 				var form = document.querySelector(".formUser");
 				form.querySelector("#ma").value = "";
@@ -341,5 +324,61 @@ function manager(selector, add, edit) {
 function remove(selector) {
 	var item = document.querySelector(selector);
 	item.style.display = "none";
+}
+
+function solveCart(selector){
+	
+	function getParent(element, selector) {
+
+        while (element.parentElement) {
+            if (element.parentElement.matches(selector)) {
+                return element.parentElement;
+            }
+            element = element.parentElement;
+        }
+    }
+    
+	var element = document.querySelector(selector);
+	var list = element.querySelectorAll("#inc");
+	for(var item of list){
+		item.onclick = increment;
+	}
+	function increment(event){
+		var parent = getParent(event.target,".cart-product-price-nth");
+		var soluong = parent.querySelector("#soluong").value;
+		parent.querySelector("#soluong").value = Number(soluong) +1;
+		
+	}
+	
+	list = element.querySelectorAll("#dec");
+	for(var item of list){
+		item.onclick = decrement;
+	}
+	function decrement(event){
+		var parent = getParent(event.target,".cart-product-price-nth");
+		var soluong = parent.querySelector("#soluong").value;
+		if(Number(soluong)>1){
+			parent.querySelector("#soluong").value = Number(soluong) -1;
+		}
+		
+	}
+	
+	var button = element.querySelector(".cart-buttton-update");
+	button.onclick = solveUpdateProduct;
+	
+	function solveUpdateProduct(event){
+		/*event.preventDefault();*/
+		var list = element.querySelectorAll(".cart-table-tr");
+		for(var item of list){
+			if(item.style.display!= "none"){
+				var ma = item.querySelector("#ma").innerHTML;
+				var size = item.querySelector("#size").innerHTML;
+				var soluongUpdate = item.querySelector("#soluong").value;
+				element.querySelector("#update").value = element.querySelector("#update").value + ma + ":" + size + ":" + soluongUpdate + "|";
+			}
+			
+		}
+		
+	}
 }
 

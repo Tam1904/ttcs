@@ -36,7 +36,7 @@
 								phẩm</button>
 						</div>
 
-						<h1 id="search" class="cart-heading " style="display: none; ">Kết quả tìm kiếm ' ' </h1>
+						<h1 id="search" class="cart-heading " style="display: none; ">Kết quả tìm kiếm '' </h1>
 
 						<div class="cart-detail " style="display: none; ">
 							<table class="cart-table ">
@@ -279,38 +279,51 @@
 						s += box.value + " ";
 					}
 				}
-				if (confirm("Bạn muốn xóa sản phẩm") == true) {
+				if (s != "") {
 
-					$.ajax({
-						type: "delete",
-						url: "http://localhost:8080/managerProduct/deleteProduct",
-						data: {
-							listma: s
-						},
-						success: function () {
-							alert("Xóa thành công");
-							autoSearch();
-							document.getElementById("search").style.display = 'none';
-							document.querySelector('.cart-detail').style.display = 'none';
-							var list = document.querySelectorAll('.button-item');
-							for (var item of list) {
-								item.style.backgroundColor = 'var(--primary-color)';
+					if (confirm("Bạn muốn xóa sản phẩm") == true) {
+
+						$.ajax({
+							type: "delete",
+							url: "http://localhost:8080/managerProduct/deleteProduct",
+							data: {
+								listma: s
+							},
+							success: function () {
+								alert("Xóa thành công");
+								autoSearch();
+								document.getElementById("search").style.display = 'none';
+								document.querySelector('.cart-detail').style.display = 'none';
+								var list = document.querySelectorAll('.button-item');
+								for (var item of list) {
+									item.style.backgroundColor = 'var(--primary-color)';
+								}
 							}
-						}
-					});
+						});
+					}
+				}
+				else {
+					document.getElementById("search").style.display = 'none';
+					document.querySelector('.cart-detail').style.display = 'none';
+					var list = document.querySelectorAll('.button-item');
+					for (var item of list) {
+						item.style.backgroundColor = 'var(--primary-color)';
+					}
 				}
 			}
 		}
 
 		function autoSearch() {
-			var s= "";
+			var s = "";
 			s = document.querySelector(".header__seach-input").value;
-			document.getElementById("search").innerHTML = "Kết quả tìm kiếm ' " + s + " '";
+			document.getElementById("search").innerHTML = "Kết quả tìm kiếm '" + s + "'";
+			var typed = document.querySelector(".cart-buttton-update").innerHTML;
 			$.ajax({
 				type: "get",
 				url: "http://localhost:8080/managerProduct/autosearchProduct",
-				data:{
-					text: s
+				data: {
+					text: s,
+					typed: typed
 				},
 				dataType: "html",
 				success: function (data) {
@@ -319,8 +332,8 @@
 
 			});
 		}
-		function autoSearchProduct(){
-			
+		function autoSearchProduct() {
+
 		}
 		function chooseProduct(event) {
 
@@ -335,7 +348,6 @@
 
 			document.querySelector(".editEmployeeModal ").style.display = 'block';
 			var parent = getParent(event, '.cart-table-tr');
-			console.log(parent)
 			var form = document.querySelector(".formProduct");
 			form.querySelector("#ma").value = parent.querySelector("#ma").innerHTML;
 			form.querySelector("#ten").value = parent.querySelector("#ten").innerHTML;

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>TRANG CHỦ</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<link rel="stylesheet" th:href="@{/base.css}">
+	<link rel="stylesheet" th:href="@{/main.css}">
+	<link rel="stylesheet" th:href="@{/main3.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+	<div class="app">
+		<div th:include="@{/header.html}"></div>
+		 <div class=" container ">
+            <div class=" modal_black "></div>
+
+            <div class=" grid " style=" width:1150px ">
+                <div class=" grid__row ">
+                   <div class=" cart ">
+                        <h1 class=" cart-heading ">THANH TOÁN</h1>
+                        <form th:action="@{/cart/dathang}" method="post" class=" pay-product ">
+                            <div class=" pay-info-user ">
+                                <h3 class=" pay-info-user-head ">THÔNG TIN THANH TOÁN</h3>
+                                <div class=" pay-info-user-name ">
+                                    <span class=" pay-info-user-span ">Họ và tên <span style=" color:
+								chocolate;font-size: 1.5rem; ">*</span></span>
+                                    <input th:value="${session.user.ten}" type='text' class=" pay-info-user-name-input " placeholder="Nhập họ và tên " required>
+                                </div>
+                                <div class=" pay-info-user-other ">
+                                    <div class=" pay-info-user-other-one ">
+                                        <div class=" pay-info-user-name ">
+                                            <span class=" pay-info-user-span ">Số điện thoại <span style=" color:
+								chocolate;font-size: 1.5rem; ">*</span></span>
+                                            <input th:value="${session.user.sodienthoai}" type='text' class=" pay-info-user-name-input " placeholder="Nhập số điện thoại " required>
+                                        </div>
+                                        <div class=" pay-info-user-name ">
+                                            <span class=" pay-info-user-span ">Tỉnh/Thành phố <span style=" color:
+								chocolate;font-size: 1.5rem; ">*</span></span>
+                                            <input name="tinh" th:value="${session.user.tinh}" type='text' class=" pay-info-user-name-input " placeholder="Ví dụ: Hà Nội " required>
+                                        </div>
+                                        <div class=" pay-info-user-name ">
+                                            <span class=" pay-info-user-span ">Xã/Phường/Thị trấn  <span style=" color:
+								chocolate;font-size: 1.5rem; ">*</span></span>
+                                            <input name="xa" th:value="${session.user.xa}" type='text' class=" pay-info-user-name-input " placeholder=" Chọn xã/phường/thị trấn " required>
+                                        </div>
+                                    </div>
+                                    <div class=" pay-info-user-other-one ">
+                                        <div class=" pay-info-user-name ">
+                                            <span class=" pay-info-user-span ">Địa chỉ email <span style=" color:
+								chocolate;font-size: 1.5rem; ">*</span></span>
+                                            <input th:value="${session.user.email}" type='email' class=" pay-info-user-name-input " placeholder="Nhập địa chỉ Email " required>
+                                        </div>
+                                        <div class=" pay-info-user-name ">
+                                            <span class=" pay-info-user-span ">Quận huyện <span style=" color:
+								chocolate;font-size: 1.5rem; ">*</span></span>
+                                            <input name="huyen" th:value="${session.user.huyen}" type='text' class=" pay-info-user-name-input " placeholder="Chọn quận huyện " required>
+                                        </div>
+                                        <div class=" pay-info-user-name ">
+                                            <span class=" pay-info-user-span ">Địa chỉ <span style=" color:
+								chocolate;font-size: 1.5rem; ">*</span></span>
+                                            <input name="dia" th:value="${session.user.dia}" type='text' class=" pay-info-user-name-input " placeholder="Ví dụ: Số 20 đường Cầu Giấy " required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class=" pay-product-note ">
+                                    <span class=" note-name ">Ghi chú đơn hàng (tùy chọn)</span>
+                                    <textarea name="ghichu" class=" note-text-area " rows=" 5 " placeholder=" Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa chỉ giao hàng chi tiết hơn. "></textarea>
+                                </div>
+                            </div>
+                            <div class=" pay-info-product ">
+                                <h3 class=" pay-info-product-head ">ĐƠN HÀNG CỦA BẠN</h3>
+                                <table style=" width: 100%; border-spacing: 0; ">
+                                    <thead>
+                                        <th style=" width: 65%; text-align: left; padding-left: 10px; ">Sản phẩm</th>
+                                        <th style=" width: 35%; text-align: left; padding-left: 10px; ">Tạm Tính</th>
+                                    </thead>
+                                    <tbody>
+                                    	<th:block th:each="product : ${session.cartProduct}">
+	                                        <tr>
+	                                            <td style=" padding: 10px; ">
+	                                                <th:block th:text="${product.ten}"></th:block>
+	                                                <strong> x <th:block th:text="${product.soluong}"></th:block></strong>
+	                                                <dl class=" pay-product-dl ">
+	                                                    <dt class=" pay-product-dt ">Size:</dt>
+	                                                    <dd class="pay-product-dd " th:text="${product.size}"></dd>
+	                                                </dl>
+	                                            </td>
+	                                            <td> 
+	                                                <div class=" cart-product-price ">
+	                                                    <span th:text="${product.format}"></span>
+	                                                    <span style=" text-decoration: underline; ">đ</span>
+	                                                </div>
+	                                            </td>
+	                                        </tr>
+                                    	</th:block>
+                                      
+                                        <tr>
+                                            <td style=" padding: 10px; ">
+                                                <span style=" font-weight: 600; ">Tạm tính</span>
+                                            </td>
+                                            <td style=" font-weight: 600; ">
+                                                <div class=" cart-product-price ">
+                                                    <span th:text="${tamtinh}"></span>
+                                                    <span style=" text-decoration: underline; ">đ</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style=" padding: 10px; ">
+                                                <span style=" font-weight: 600; ">Giao hàng</span>
+                                            </td>
+                                            <td style=" font-weight: 600; ">
+                                                <div class=" cart-product-price ">
+                                                    <span>65.000</span>
+                                                    <span style=" text-decoration: underline; ">đ</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style=" padding: 10px; ">
+                                                <span style=" font-weight: 600; ">Tổng</span>
+                                            </td>
+                                            <td style=" font-weight: 600; ">
+                                                <div class=" cart-product-price ">
+                                                    <span th:text="${tong}"></span>
+                                                    <span style=" text-decoration: underline; ">đ</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class=" pay-product-area ">
+                                    <div class=" pay-product-site ">
+
+                                        <input type='radio' checked class=" pay-product-site-input "> 
+                                        <span class=" pay-product-site-span ">Trả tiền mặt khi nhận hàng</span>
+                                    </div>
+                                    <div style=" width: 100%; display: flex; justify-content: flex-end; ">
+                                        <button type="submit" class=" pay-button "> Đặt hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                       
+                   </div>
+                </div>
+
+            
+            </div>
+        </div>
+		<div th:include="@{/footer.html}"></div>
+	</div>
+	<script th:src="@{/index.js}"></script>
+	<script>
+		ShowIndex('.home__heading', '.home__heading-menu');
+		Category('.home__heading');
+		Sticky('.header_filter-background');
+
+	</script>
+
+</body>
+
+</html>

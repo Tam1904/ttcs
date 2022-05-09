@@ -10,7 +10,7 @@
 }
 
 .form-login {
-    width: 35%;
+    width: 30%;
     /* height: 55%; */
     background-color: #fff;
     margin: auto;
@@ -87,6 +87,13 @@
 .auth-form__text-link {
     text-decoration: none;
     color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.auth-form-message {
+	display: block;
+    margin-top: 5px;
+    color:red;
     font-size: 1.4rem;
 }
 
@@ -1347,6 +1354,11 @@ a:hover {
     }
 } */
 
+.home-product {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
 .top-product-heading {
     background-color: var(--primary-color);
     height: 40px;
@@ -1440,6 +1452,7 @@ a:hover {
     color: var(--primary-color);
     margin-top: 5px;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .grid__row-title {

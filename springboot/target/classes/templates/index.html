@@ -20,158 +20,33 @@
 
 						<div class="home-product ">
 							<!-- nguyên tắc grid - row - column  -->
-							<div class="grid__row ">
-								<div class="grid__row-title ">
-									<h3 class="grid__row-title-name ">GIÀY THỂ THAO TRẺ EM </h3>
-									<!-- <a  class="grid__row-title-link ">Xem thêm</a> -->
-								</div>
-								<div class="grid__column-2-5 ">
-									<div class="home-product-item ">
-										<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-											alt=" " class="home-product-item-img ">
-										<div class="home-product-item__origin ">
-											<a class="home-product-item__origin-brand ">Mua ngay</a>
-										</div>
-										<h4 class="home-product-item-name ">Giày nike trẻ em Traiblazer video game đế 3
-											màu nhập khẩu nước ngoài</h4>
-										<div class="home-product-item-price ">
-											<div class="home-product-item-price-current ">
-												<span>899.000</span>
-												<span style="text-decoration: underline; ">đ</span>
+							<th:block th:each="map : ${session.map}">
+
+								<div class="grid__row ">
+									<div class="grid__row-title ">
+										<h3 class="grid__row-title-name " style="text-transform: uppercase;" th:text="${map.key}" ></h3>
+										<!-- <a  class="grid__row-title-link ">Xem thêm</a> -->
+									</div>
+									<th:block th:each="product : ${map.value}">
+
+										<div class="grid__column-2-5 ">
+											<div class="home-product-item ">
+												<img th:src="${product.token}" class="home-product-item-img ">
+												<div class="home-product-item__origin ">
+													<a th:href="@{/detailProduct(ma=${product.ma})}" class="home-product-item__origin-brand ">Mua ngay</a>
+												</div>
+												<h4 class="home-product-item-name " th:text="${product.ten}"></h4>
+												<div class="home-product-item-price ">
+													<div class="home-product-item-price-current ">
+														<span th:text="${product.format}"></span>
+														<span style="text-decoration: underline; ">đ</span>
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
+									</th:block>
 								</div>
-
-								<div class="grid__column-2-5 ">
-									<div class="home-product-item ">
-										<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-											alt=" " class="home-product-item-img ">
-										<div class="home-product-item__origin ">
-											<a class="home-product-item__origin-brand ">Mua ngay</a>
-										</div>
-										<h4 class="home-product-item-name ">Giày nike trẻ em video game đế 3 màu nhập
-											khẩu nước ngoài</h4>
-										<div class="home-product-item-price ">
-											<div class="home-product-item-price-current ">
-												<span>899.000</span>
-												<span style="text-decoration: underline; ">đ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="grid__column-2-5 ">
-									<div class="home-product-item ">
-										<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-											alt=" " class="home-product-item-img ">
-										<div class="home-product-item__origin ">
-											<a class="home-product-item__origin-brand ">Mua ngay</a>
-										</div>
-										<h4 class="home-product-item-name ">Giày nike trẻ em Traiblazer video game đế 3
-											màu nhập khẩu nước ngoài</h4>
-										<div class="home-product-item-price ">
-											<div class="home-product-item-price-current ">
-												<span>899.000</span>
-												<span style="text-decoration: underline; ">đ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="grid__column-2-5 ">
-									<div class="home-product-item ">
-										<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-											alt=" " class="home-product-item-img ">
-										<div class="home-product-item__origin ">
-											<a class="home-product-item__origin-brand ">Mua ngay</a>
-										</div>
-										<h4 class="home-product-item-name ">Giày nike trẻ em Traiblazer video game đế 3
-											màu nhập khẩu nước ngoài</h4>
-										<div class="home-product-item-price ">
-											<div class="home-product-item-price-current ">
-												<span>899.000</span>
-												<span style="text-decoration: underline; ">đ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="grid__column-2-5 ">
-									<div class="home-product-item ">
-										<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-											alt=" " class="home-product-item-img ">
-										<div class="home-product-item__origin ">
-											<a class="home-product-item__origin-brand ">Mua ngay</a>
-										</div>
-										<h4 class="home-product-item-name ">Giày nike trẻ em Traiblazer video game đế 3
-											màu nhập khẩu nước ngoài</h4>
-										<div class="home-product-item-price ">
-											<div class="home-product-item-price-current ">
-												<span>899.000</span>
-												<span style="text-decoration: underline; ">đ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="grid__column-2-5 ">
-									<div class="home-product-item ">
-										<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-											alt=" " class="home-product-item-img ">
-										<div class="home-product-item__origin ">
-											<a class="home-product-item__origin-brand ">Mua ngay</a>
-										</div>
-										<h4 class="home-product-item-name ">Giày nike trẻ em Traiblazer video game đế 3
-											màu nhập khẩu nước ngoài</h4>
-										<div class="home-product-item-price ">
-											<div class="home-product-item-price-current ">
-												<span>899.000</span>
-												<span style="text-decoration: underline; ">đ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="grid__column-2-5 ">
-									<div class="home-product-item ">
-										<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-											alt=" " class="home-product-item-img ">
-										<div class="home-product-item__origin ">
-											<a class="home-product-item__origin-brand ">Mua ngay</a>
-										</div>
-										<h4 class="home-product-item-name ">Giày nike trẻ em Traiblazer video game đế 3
-											màu nhập khẩu nước ngoài</h4>
-										<div class="home-product-item-price ">
-											<div class="home-product-item-price-current ">
-												<span>899.000</span>
-												<span style="text-decoration: underline; ">đ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="grid__column-2-5 ">
-									<div class="home-product-item ">
-										<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-											alt=" " class="home-product-item-img ">
-										<div class="home-product-item__origin ">
-											<a class="home-product-item__origin-brand ">Mua ngay</a>
-										</div>
-										<h4 class="home-product-item-name ">Giày nike trẻ em Traiblazer video game đế 3
-											màu nhập khẩu nước ngoài</h4>
-										<div class="home-product-item-price ">
-											<div class="home-product-item-price-current ">
-												<span>899.000</span>
-												<span style="text-decoration: underline; ">đ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-
-							</div>
+							</th:block>
 						</div>
 
 
@@ -228,7 +103,7 @@
 								<li class="category-item ">
 									<img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nam-icon.png "
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=1,index=1,text)}"  class="category-item__link ">
 										Giày thể thao nam
 									</a>
 								</li>
@@ -236,7 +111,7 @@
 								<li class="category-item ">
 									<img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nu-icon.png "
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=2,index=1,text)}"  class="category-item__link ">
 										Giày thể thao nữ
 									</a>
 
@@ -245,7 +120,7 @@
 								<li class="category-item ">
 									<img src="https://capvirgo.com/wp-content/uploads/2017/11/adidas-icon.png "
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=3,index=1,text)}" class="category-item__link ">
 										Giày Adidas
 									</a>
 
@@ -254,26 +129,8 @@
 								<li class="category-item ">
 									<img src="https://capvirgo.com/wp-content/uploads/2021/07/air-jordan-150x150.png "
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=4,index=1,text)}"  class="category-item__link ">
 										Giày Bóng Rổ
-									</a>
-
-								</li>
-
-								<li class="category-item ">
-									<img src="https://capvirgo.com/wp-content/uploads/2021/01/hang_chinh_hang-150x150.jpg "
-										class="category-item-img ">
-									<a class="category-item__link ">
-										Giày chính hãng
-									</a>
-
-								</li>
-
-								<li class="category-item ">
-									<img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-gia-tot.png "
-										class="category-item-img ">
-									<a class="category-item__link ">
-										Giá rẻ
 									</a>
 
 								</li>
@@ -282,7 +139,7 @@
 								<li class="category-item ">
 									<img src="https://capvirgo.com/wp-content/uploads/2021/09/icon-quan-ao-tre-em-150x150.png "
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=5,index=1,text)}"  class="category-item__link ">
 										Quần áo bóng đá
 									</a>
 
@@ -292,7 +149,7 @@
 								<li class="category-item ">
 									<img src="https://capvirgo.com/wp-content/uploads/2020/11/giay-tre-em-icon.png "
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=6,index=1,text)}"  class="category-item__link ">
 										Giày thể thao trẻ em
 									</a>
 
@@ -308,151 +165,25 @@
 								</h3>
 							</header>
 							<ul class="top-product-list ">
-								<li class="top-product-list-item ">
-									<div class="top-product-list-item-1 ">
-										<a class="top-product-list-name ">
-											Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1
-										</a>
-										<a class="top-product-list-link-img ">
-											<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-												alt=" " class="top-product-list-item-img ">
-										</a>
-									</div>
-									<div class="top-product-list-item-price "
-										style="display: flex; align-items: center; ">
-										<span>
-											890.000
-										</span>
-										<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
-									</div>
-
-								</li>
-								<li class="top-product-list-item ">
-									<div class="top-product-list-item-1 ">
-										<a class="top-product-list-name ">
-											Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
-										</a>
-										<a class="top-product-list-link-img ">
-											<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-												alt=" " class="top-product-list-item-img ">
-										</a>
-									</div>
-									<div class="top-product-list-item-price "
-										style="display: flex; align-items: center; ">
-										<span>
-											890.000
-										</span>
-										<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
-									</div>
-								</li>
-								<li class="top-product-list-item ">
-									<div class="top-product-list-item-1 ">
-										<a class="top-product-list-name ">
-											Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
-										</a>
-										<a class="top-product-list-link-img ">
-											<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-												alt=" " class="top-product-list-item-img ">
-										</a>
-									</div>
-									<div class="top-product-list-item-price "
-										style="display: flex; align-items: center; ">
-										<span>
-											890.000
-										</span>
-										<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
-									</div>
-								</li>
-								<li class="top-product-list-item ">
-									<div class="top-product-list-item-1 ">
-										<a class="top-product-list-name ">
-											Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
-										</a>
-										<a class="top-product-list-link-img ">
-											<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-												alt=" " class="top-product-list-item-img ">
-										</a>
-									</div>
-									<div class="top-product-list-item-price "
-										style="display: flex; align-items: center; ">
-										<span>
-											890.000
-										</span>
-										<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
-									</div>
-								</li>
-								<li class="top-product-list-item ">
-									<div class="top-product-list-item-1 ">
-										<a class="top-product-list-name ">
-											Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
-										</a>
-										<a class="top-product-list-link-img ">
-											<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-												alt=" " class="top-product-list-item-img ">
-										</a>
-									</div>
-									<div class="top-product-list-item-price "
-										style="display: flex; align-items: center; ">
-										<span>
-											890.000
-										</span>
-										<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
-									</div>
-								</li>
-								<li class="top-product-list-item ">
-									<div class="top-product-list-item-1 ">
-										<a class="top-product-list-name ">
-											Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
-										</a>
-										<a class="top-product-list-link-img ">
-											<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-												alt=" " class="top-product-list-item-img ">
-										</a>
-									</div>
-									<div class="top-product-list-item-price "
-										style="display: flex; align-items: center; ">
-										<span>
-											890.000
-										</span>
-										<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
-									</div>
-								</li>
-								<li class="top-product-list-item ">
-									<div class="top-product-list-item-1 ">
-										<a class="top-product-list-name ">
-											Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
-										</a>
-										<a class="top-product-list-link-img ">
-											<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-												alt=" " class="top-product-list-item-img ">
-										</a>
-									</div>
-									<div class="top-product-list-item-price "
-										style="display: flex; align-items: center; ">
-										<span>
-											890.000
-										</span>
-										<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
-									</div>
-								</li>
-								<li class="top-product-list-item ">
-									<div class="top-product-list-item-1 ">
-										<a class="top-product-list-name ">
-											Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1
-										</a>
-										<a class="top-product-list-link-img ">
-											<img src="https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970 "
-												alt=" " class="top-product-list-item-img ">
-										</a>
-									</div>
-									<div class="top-product-list-item-price "
-										style="display: flex; align-items: center; ">
-										<span>
-											890.000
-										</span>
-										<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
-									</div>
-								</li>
+								<th:block th:each="top : ${session.productsTop}">
+									<li class="top-product-list-item ">
+										<div class="top-product-list-item-1 ">
+											<a th:href="@{/detailProduct(ma=${top.ma})}" class="top-product-list-name " th:text="${top.ten}">
+											</a>
+											<a th:href="@{/detailProduct(ma=${top.ma})}" class="top-product-list-link-img ">
+												<img th:src="${top.token}" class="top-product-list-item-img ">
+											</a>
+		
+										</div>
+										<div class="top-product-list-item-price "
+											style="display: flex; align-items: center; ">
+											<span th:text="${top.format}"></span>
+											<span style="text-decoration: underline; margin-left: 3px; ">đ</span>
+										</div>
+	
+									</li>
+								</th:block>
+								
 							</ul>
 						</div>
 					</div>

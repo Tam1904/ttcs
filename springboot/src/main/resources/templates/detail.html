@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>TRANG CHỦ</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<link rel="stylesheet" th:href="@{/base.css}">
+	<link rel="stylesheet" th:href="@{/main.css}">
+	<link rel="stylesheet" th:href="@{/main2.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+	<div class="app">
+		<div th:include="@{/header.html}"></div>
+		<div class="container ">
+			<div class="modal_black "></div>
+			<div class="grid container3 ">
+				<div class="grid__row container2 ">
+					<div class="grid__column-4 ">
+
+						<div class="img ">
+							<div class="img-item ">
+								<div class="img-item-tmp ">
+									<th:block th:each="s : ${product.list}">
+										<img th:src="${s}" class="img-item-img ">
+									</th:block>
+								</div>
+
+							</div>
+
+
+							<ul class="img-list1 ">
+								<th:block th:each="s : ${product.list}">
+									<li class="img-list1-item ">
+										<img th:src="${s}" class="img-item-img-item ">
+									</li>
+								</th:block>
+							</ul>
+						</div>
+					</div>
+					<div class="grid__column-5 container1 ">
+						<div class="product-name ">
+							<h2 class="product-name-heading " th:text="${product.ten}">
+							</h2>
+						</div>
+						<div class="product-price ">
+							<h2 class="product-name-heading-price ">
+								<span th:text="${product.format}"> </span>
+								<span style="text-decoration: underline; ">đ</span>
+							</h2>
+						</div>
+						<div class="product-des ">
+							<ul class="product-des-list ">
+								<li class="product-des-list ">
+									Mã sản phẩm: <th:block th:text="${product.ma}">
+									</th:block>
+								</li>
+								<li class="product-des-list ">
+									Size: <th:block th:text="${product.size}">
+									</th:block>
+								</li>
+								<li class="product-des-list ">
+									Hàng order 8-10 ngày
+								</li>
+								<li class="product-des-list ">
+									Full box (Cả hộp)
+								</li>
+							</ul>
+						</div>
+						<div class="product-buy ">
+							<div class="product-buy-size ">
+								<span class="product-buy-size1 ">
+									Size
+								</span>
+							</div>
+							<div class="product-buy-choice-size ">
+								<th:block th:each="number : ${product.listSize}">
+									<div class="product-buy-choice-size-item ">
+										<span class="product-buy-choice-size-number " th:text="${number}">
+										</span>
+										<div class="product-buy-choice-size-number-hover ">
+											<span class="product-buy-choice-size-number-1 " th:text="${number}">
+											</span>
+										</div>
+									</div>
+								</th:block>
+
+							</div>
+
+							<form th:action="@{/detailProduct}" th:object="${product}" class="product-quantify" method="post">
+								<input type="hidden" th:value="${product.ma}" name = "ma">
+								<input name = "soluong" type='number' value='1' class='form-control' min='1' max='10' required="[{>0}]">
+								<input id="size" type="hidden" value="" name = "size">
+								<input type="submit" value="Mua hàng" class="btn--primary2">
+							</form >
+						</div>
+						<div class="product-meta ">
+							<div class="product-id-1 ">
+								<span class="product-id ">
+									Mã :
+								</span>
+								<span class="product-id-2 " th:text="${product.ma}">
+								</span>
+							</div>
+
+							<div class="product-meta-des-1 ">
+								<span class="product-meta-des ">
+									Mô tả :
+								</span>
+								<span class="product-p-des " th:text="${product.mota}">
+								</span>
+							</div>
+
+						</div>
+
+						<div class="product-contact ">
+							<div class="product-contact-phone ">
+								<i class="fas fa-phone-alt icon "></i>
+								<span class="product-pay-info icon2 " style="font-size: 2rem; ">
+									0865.234.456
+								</span>
+							</div>
+							<div class="product-contact-mail ">
+								<i class="fas fa-envelope icon1 "></i>
+								<span class="product-pay-info ">
+									CAPVIRGO@GMAIL.COM
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="grid__column-3 ">
+						<div class="product-pay ">
+							<ul class="product-pay-list ">
+								<li class="product-pay-list-item ">
+									<div class="procdut-icon ">
+										<i class="fas fa-truck-moving icon "></i>
+									</div>
+									<span class="product-pay-info hover1 ">
+										GIAO HÀNG TOÀN QUỐC
+									</span>
+								</li>
+								<li class="product-pay-list-item ">
+									<div class="procdut-icon ">
+										<i class="fas fa-home icon "></i>
+									</div>
+									<span class="product-pay-info hover1 ">
+										THANH TOÁN TẠI NHÀ
+									</span>
+								</li>
+								<li class="product-pay-list-item ">
+									<div class="procdut-icon ">
+										<i class="fas fa-exchange-alt icon "></i>
+									</div>
+									<span class="product-pay-info hover1 ">
+										ĐỔI TRẢ TRONG 3 NGÀY
+									</span>
+								</li>
+
+								<li class="product-pay-list-item ">
+									<div class="procdut-icon ">
+										<i class="fas fa-phone-alt icon "></i>
+									</div>
+									<span class="product-pay-info phone ">
+										0865.431.963
+									</span>
+								</li>
+								<li class="product-pay-list-item ">
+									<div class="procdut-icon ">
+										<i class="fas fa-box-open icon "></i>
+									</div>
+									<span class="product-pay-info ">
+										100% Ảnh tự chụp
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="grid__row " style="margin-top: 10px;margin-bottom: 50px; ">
+					<div class="grid__row-title ">
+						<h3 class="grid__row-title-name-1 ">ĐÁNH GIÁ SẢN PHẨM </h3>
+					</div>
+					<span style="font-size: 1.7rem;margin: 10px 4px;color:var(--text-color)" th:if="${comments==null || comments.isEmpty()}">
+						Không có bình luận nào</span>
+					<th:block th:if="${comments!=null}">
+
+						<ul class="product-comment ">
+							<th:block th:each="comment : ${comments}">
+								<li class="product-comment-item ">
+									<img src="https://secure.gravatar.com/avatar/a64b645bdadde68540e36166a8f77add?s=50&d=monsterid&r=g "
+										alt=" " class="product-comment-item-img ">
+									<div class="product-comment-item-list ">
+										<span class="product-comment-item-list-user " th:text="${comment.ten}">
+										</span>
+										<span class="product-comment-item-list-day " th:text="${comment.thoigian}">
+										</span>
+										<p class="product-comment-item-list-paragraph " th:text="${comment.noidung}">
+										</p>
+									</div>
+								</li>
+							</th:block>
+
+
+						</ul>
+					</th:block>
+					<ul class="pag-list ">
+						<li class="pag-list-item ">
+							<a href=" " class="pag-item__link ">
+								<i class="pag__link-icon fas fa-angle-left "></i>
+							</a>
+						</li>
+
+						<li class="pag-list-item ">
+							<a href=" " class="pag-item__link pag-item__link-active ">1</a>
+						</li>
+
+						<li class="pag-list-item ">
+							<a href=" " class="pag-item__link ">2</a>
+						</li>
+
+						<li class="pag-list-item ">
+							<a href=" " class="pag-item__link ">3</a>
+						</li>
+
+						<li class="pag-list-item ">
+							<a href=" " class="pag-item__link ">4</a>
+						</li>
+
+						<li class="pag-list-item ">
+							<a href=" " class="pag-item__link ">
+								<i class="pag__link-icon fas fa-angle-right "></i>
+							</a>
+						</li>
+
+					</ul>
+
+					<form action=" " class="product-user-comment " method="post ">
+						<span class="product-user-comment-span ">
+							Bình luận
+						</span>
+						<textarea class="product-user-comment-paragraph " rows="5 "
+							placeholder="Mời bạn tham gia bình luận, vui lòng viết tiếng Việt có dấu "></textarea>
+						<div style="display: flex;justify-content: end;width: 100%; ">
+
+							<button class="product-user-comment-submit "> Gửi</button>
+						</div>
+					</form>
+				</div>
+				<div class="grid__row " style="margin-bottom: 20px; ">
+					<div class="grid__row-title ">
+						<h3 class="grid__row-title-name-1 ">SẢN PHẨM LIÊN QUAN </h3>
+					</div>
+					<th:block th:each="product:${products}">
+						<div class="grid__column-2-5 ">
+							<div class="home-product-item " style="min-height: 420px;">
+								<img th:src="${product.token}"
+									 class="home-product-item-img ">
+								<div class="home-product-item__origin ">
+									<a th:href="@{/detailProduct(ma=${product.ma})}" class="home-product-item__origin-brand ">Mua ngay</a>
+								</div>
+								<h4 class="home-product-item-name " th:text="${product.ten}"></h4>
+								<div class="home-product-item-price ">
+									<div class="home-product-item-price-current ">
+										<span th:text="${product.format}"></span>
+										<span style="text-decoration: underline; ">đ</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</th:block>
+
+
+
+				</div>
+
+			</div>
+		</div>
+		<div th:include="@{/footer.html}"></div>
+	</div>
+	<script th:src="@{/index.js}"></script>
+	<script>
+		ShowIndex('.home__heading', '.home__heading-menu');
+		Category('.home__heading');
+		Sticky('.header_filter-background');
+		ViewImage('.img')
+		ChooseSize('.product-buy')
+	</script>
+
+</body>
+
+
+</html>

@@ -33,7 +33,7 @@
 								var(--primary-color); color: var(--while-color); ">Xóa tài khoản</button>
 						</div>
 
-						<h1 id="search" class=" cart-heading " style=" display: none; ">Kết quả tìm kiếm ' ' </h1>
+						<h1 id="search" class=" cart-heading " style=" display: none; ">Kết quả tìm kiếm '' </h1>
 
 						<div class=" cart-detail " style=" display: none; ">
 							<table class=" cart-table ">
@@ -329,12 +329,14 @@
 		function autoSearch() {
 			var s= "";
 			s = document.querySelector(".header__seach-input").value;
-			document.getElementById("search").innerHTML = "Kết quả tìm kiếm ' " + s + " '";
+			document.getElementById("search").innerHTML = "Kết quả tìm kiếm '" + s + "'";
+			var typed = document.querySelector(".cart-buttton-update").innerHTML;
 			$.ajax({
 				type: "get",
 				url: "http://localhost:8080/managerUser/autosearchUser",
 				data: {
-					text: s
+					text: s,
+					typed: typed
 				},
 				dataType: "html",
 				success: function (data) {

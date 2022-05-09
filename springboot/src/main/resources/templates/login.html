@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" th:href="@{main.css}">
-    <link rel="stylesheet" th:href="@{base.css}">
+    <link rel="stylesheet" th:href="@{/main.css}">
+    <link rel="stylesheet" th:href="@{/base.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -22,6 +22,9 @@
                 </div>
                 <input name="username" type="text" class="form-login-username" th:value="${account.username}" placeholder="Nhập username" required>
                 <input name="password" type="password" class="form-login-password" th:value="${account.password}" placeholder="Nhập password" required>
+                <th:block th:if="${messOne!=null && !messOne.isEmpty()}">
+	                <span class="auth-form-message" th:text="${messOne}"></span>
+                </th:block>
                 <div class="auth-form__aside">
                     <p class="auth-form__policy-text">
                         Bằng việc đăng ký, bạn đã đồng ý với trang web về

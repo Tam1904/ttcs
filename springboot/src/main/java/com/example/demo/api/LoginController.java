@@ -29,15 +29,16 @@ public class LoginController {
 	
 	@PostMapping
 	public String check(HttpSession session,Model model, @ModelAttribute("account") Account ac) {
-//		@RequestParam("username") String username, @RequestParam("password") String password
 		String username = ac.getUsername();
 		String password = ac.getPassword();
 		model.addAttribute("account", new Account(username, password));
 		if(uDao.findUser(username, password)) {
 			User user = uDao.getUser(username, password);
 			session.setAttribute("user", user);
-			return "index";
+			session.setMaxInactiveInterval(-1);
+			return "redirect:/";
 		}
+		model.addAttribute("messOne", "Mật khẩu không chính xác");
 		return "login";
 	}
 }

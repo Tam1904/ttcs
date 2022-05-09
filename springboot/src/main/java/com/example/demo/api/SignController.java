@@ -19,34 +19,34 @@ import com.example.demo.model.User;
 public class SignController {
 	@Autowired
 	private UserDao uDao;
-	
+
 	@GetMapping
 	public String signForm(Model model) {
 		model.addAttribute("account", new Account());
 		return "signin";
 	}
-	
+
 	@PostMapping
-	public String check(HttpSession session,Model model, @ModelAttribute("account") Account ac) {
-		String username = ac.getUsername();
-		String password = ac.getPassword();
+	public String check(HttpSession session, Model model, @ModelAttribute("account") Account ac) {
+		String username = ac.getUsername().trim();
+		String password = ac.getPassword().trim();
 		String confirm = ac.getConfirm();
-		if(!confirm.equals(password)) {
-			model.addAttribute("account", new Account(username, password, confirm));
-			model.addAttribute("messOne", "You just enter the confirm password");
+		if (uDao.exitsUser(username)) {
+			model.addAttribute("exits", "Người dùng đã tồn tại");
 			return "signin";
-		}
-		else {
-			if(!uDao.exitsUser(username)) {
-				uDao.addUser(username, password);
-			}
-			else {
-				model.addAttribute("account", new Account(username, password));
+		} else {
+			if (!confirm.equals(password)) {
+				model.addAttribute("account", new Account(username, password, confirm));
+				model.addAttribute("messOne", "Mật khẩu xác nhận chưa chính xác");
 				return "signin";
+			} else {
+				model.addAttribute("account", new Account(username, password));
+				uDao.addUser(username, password);
 			}
 		}
 		User user = uDao.getUser(username, password);
 		session.setAttribute("user", user);
-		return "index";
+		session.setMaxInactiveInterval(-1);
+		return "redirect:/";
 	}
 }

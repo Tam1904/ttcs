@@ -59,50 +59,14 @@
 
 
 				<div class="header__seach">
-					<form action="" method="post" class="header__seach-wrap" id='header-seach'>
-						<input type="text" class="header__seach-input" placeholder="Tìm kiếm sản phẩm">
+					<form th:action="@{/searchHome}" method="post" class="header__seach-wrap" id='header-seach'>
+						<input name = "text" type="text" class="header__seach-input" placeholder="Tìm kiếm sản phẩm">
 
 						<div class="header_seach-history">
 							<h3 class="header__seach-history-heading">
 								Sản phẩm
 							</h3>
 							<ul class="header__seach-history-list">
-								<li class="header__seach-history-item">
-									<a class="header__seach-history-item-link"
-										title="Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1">
-
-										<img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/28482a09-300x300.jpg?v=1646128657}"
-											alt="" class="header__seach-history-item-img">
-										<div class="header__seach-history-item-product">
-											<span class="header__seach-history-item-product-name">
-												Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1
-											</span>
-											<div class="header__seach-history-item-product-price">
-												<span>890.000</span>
-												<span class="header__seach-history-item-product-price-item">đ</span>
-											</div>
-										</div>
-									</a>
-								</li>
-
-								<li class="header__seach-history-item">
-									<a class="header__seach-history-item-link"
-										title="Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1">
-
-										<img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/28482a09-300x300.jpg?v=1646128657}"
-											alt="" class="header__seach-history-item-img">
-										<div class="header__seach-history-item-product">
-											<span class="header__seach-history-item-product-name">
-												Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1
-											</span>
-											<div class="header__seach-history-item-product-price">
-												<span>890.000</span>
-												<span class="header__seach-history-item-product-price-item">đ</span>
-											</div>
-										</div>
-									</a>
-								</li>
-
 								<li class="header__seach-history-item">
 									<a class="header__seach-history-item-link"
 										title="Giày Nike Jordan 1 Low - Light Smoke Grey rep 1:1 1:1 1:1">
@@ -133,89 +97,45 @@
 
 				<div class="header__cart">
 					<div class="header__cart-wrap">
-						<img th:src="@{/icons8-cart-64.png}" style="width: 35px;">
-						<span class="header__cart-wrap-icon">giỏ hàng của bạn</span>
+						<a th:href="@{/cart}"> <img th:src="@{/icons8-cart-64.png}" style="width: 35px;"> </a>
+
+						<a th:href="@{/cart}" style="text-decoration: none;"><span class="header__cart-wrap-icon">giỏ
+								hàng của bạn</span></a>
 						<div class="header__cart-list">
-							<!-- <span class="header__cart-list-no-cart-msg">Chưa có sản phẩm</span> -->
+							<th:block th:if="${session.cartProduct==null || session.cartProduct.isEmpty() }">
+								<span class="header__cart-list-no-cart-msg">Chưa có sản phẩm</span>
+							</th:block>
+							<th:block th:if="${session.cartProduct!=null && !session.cartProduct.isEmpty() }">
+								<h4 class="header_cart-heading">Danh sách sản phẩm</h4>
+								<ul class="header_cart-list-item">
+									<th:block th:each="product: ${session.cartProduct}">
 
-							<h4 class="header_cart-heading">Sản phẩm đã thêm</h4>
-							<ul class="header_cart-list-item">
-								<li class="header_cart-item">
-									<img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970}"
-										alt="" class="header_cart-img">
-									<div class="header_cart-item-info">
+										<li class="header_cart-item">
+											<img th:src="${product.token}" alt="" class="header_cart-img">
+											<div class="header_cart-item-info">
 
-										<div class="header_cart-item-head">
-											<h5 class="header_cart-item-name">Giày trẻ em Air Jordan 4 màu hồng </h5>
+												<div class="header_cart-item-head">
+													<h5 th:text="${product.ten}" class="header_cart-item-name"></h5>
 
-											<div class="header_cart-item-price-wrap">
-												<span class="header_cart-item-price">200.000đ</span>
-												<span class="header_cart-item-multiply">x</span>
-												<span class="header_cart-item-qbt">2</span>
+													<div class="header_cart-item-price-wrap">
+														<span th:text="${product.format}"
+															class="header_cart-item-price"></span>
+														<span style="text-decoration: underline; ">đ</span>
+														<span class="header_cart-item-multiply">x</span>
+														<span th:text="${product.soluong}"
+															class="header_cart-item-qbt"></span>
+													</div>
+												</div>
+
 											</div>
-										</div>
-										<div class="header_cart-item-body">
+
+										</li>
+									</th:block>
 
 
-											<span class="header_cart-item-remove">Xóa</span>
-										</div>
-
-									</div>
-
-								</li>
-
-								<li class="header_cart-item">
-									<img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970}"
-										alt="" class="header_cart-img">
-									<div class="header_cart-item-info">
-
-										<div class="header_cart-item-head">
-											<h5 class="header_cart-item-name">Giày trẻ em Air Jordan 4 màu trắng sữa
-											</h5>
-
-											<div class="header_cart-item-price-wrap">
-												<span class="header_cart-item-price">200.000đ</span>
-												<span class="header_cart-item-multiply">x</span>
-												<span class="header_cart-item-qbt">2</span>
-											</div>
-										</div>
-										<div class="header_cart-item-body">
-
-
-											<span class="header_cart-item-remove">Xóa</span>
-										</div>
-
-									</div>
-
-
-								</li>
-
-								<li class="header_cart-item">
-									<img th:src="@{https://capvirgo.com/wp-content/uploads/2022/03/3ae2b8dc-300x300.jpg?v=1646128970}"
-										alt="" class="header_cart-img">
-									<div class="header_cart-item-info">
-
-										<div class="header_cart-item-head">
-											<h5 class="header_cart-item-name">Giày trẻ em adidas Superstar Shell Head
-												dán dính trắng sọc xanh</h5>
-
-											<div class="header_cart-item-price-wrap">
-												<span class="header_cart-item-price">200.000đ</span>
-												<span class="header_cart-item-multiply">x</span>
-												<span class="header_cart-item-qbt">2</span>
-											</div>
-										</div>
-										<div class="header_cart-item-body">
-
-											<span class="header_cart-item-remove">Xóa</span>
-										</div>
-
-									</div>
-
-								</li>
-
-							</ul>
-							<a class="header_cart-view-cart btn btn--primary1">Xem giỏ hàng</a>
+								</ul>
+								<a th:href="@{/cart}" class="header_cart-view-cart btn btn--primary1">Xem giỏ hàng</a>
+							</th:block>
 						</div>
 
 					</div>
@@ -240,7 +160,7 @@
 								<li class="category-item ">
 									<img th:src="@{https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nam-icon.png}"
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=1,index=1,text)}" class="category-item__link ">
 										Giày thể thao nam
 									</a>
 								</li>
@@ -248,7 +168,7 @@
 								<li class="category-item ">
 									<img th:src="@{https://capvirgo.com/wp-content/uploads/2020/11/giay-the-thao-nu-icon.png} "
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=2,index=1,text)}" class="category-item__link ">
 										Giày thể thao nữ
 									</a>
 
@@ -257,7 +177,7 @@
 								<li class="category-item ">
 									<img th:src="@{https://capvirgo.com/wp-content/uploads/2017/11/adidas-icon.png}"
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=3,index=1,text)}" class="category-item__link ">
 										Giày Adidas
 									</a>
 
@@ -266,26 +186,8 @@
 								<li class="category-item ">
 									<img th:src="@{https://capvirgo.com/wp-content/uploads/2021/07/air-jordan-150x150.png}"
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=4,index=1,text)}" class="category-item__link ">
 										Giày Bóng Rổ
-									</a>
-
-								</li>
-
-								<li class="category-item ">
-									<img th:src="@{https://capvirgo.com/wp-content/uploads/2021/01/hang_chinh_hang-150x150.jpg}"
-										class="category-item-img ">
-									<a class="category-item__link ">
-										Giày chính hãng
-									</a>
-
-								</li>
-
-								<li class="category-item ">
-									<img th:src="@{https://capvirgo.com/wp-content/uploads/2020/11/giay-gia-tot.png}"
-										class="category-item-img ">
-									<a class="category-item__link ">
-										Giá rẻ
 									</a>
 
 								</li>
@@ -295,7 +197,7 @@
 								<li class="category-item ">
 									<img th:src="@{https://capvirgo.com/wp-content/uploads/2021/09/icon-quan-ao-tre-em-150x150.png} "
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=5,index=1,text)}" class="category-item__link ">
 										Quần áo bóng đá
 									</a>
 
@@ -306,7 +208,7 @@
 								<li class="category-item ">
 									<img th:src="@{https://capvirgo.com/wp-content/uploads/2020/11/giay-tre-em-icon.png}"
 										class="category-item-img ">
-									<a class="category-item__link ">
+									<a th:href="@{/typeProduct(typed=6,index=1,text)}" class="category-item__link ">
 										Giày thể thao trẻ em
 									</a>
 
@@ -319,7 +221,7 @@
 					</div>
 				</div>
 
-				<a class="home-heading-btn ">
+				<a th:href="@{/}" class="home-heading-btn ">
 					TRANG CHỦ
 				</a>
 
