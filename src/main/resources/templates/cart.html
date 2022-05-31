@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>TRANG CHỦ</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<link rel="stylesheet" th:href="@{/base.css}">
+	<link rel="stylesheet" th:href="@{/main.css}">
+	<link rel="stylesheet" th:href="@{/main2.css}">
+	<link rel="stylesheet" th:href="@{/main3.css}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+	<div class="app">
+		<div th:include="@{/header.html}"></div>
+		<div class=" container ">
+			<div class=" modal_black "></div>
+
+			<div class=" grid " style=" width: 1150px; ">
+				<div class=" grid__row ">
+					<form th:action="@{/cart/update}" class="cart" method="post">
+						<h1 class=" cart-heading ">GIỎ HÀNG</h1>
+						<div class=" cart-detail ">
+							<input type="hidden" id="maSP" name="remove">
+							<input type="hidden" id="update"name="update" >
+							<table class=" cart-table ">
+								<thead class=" cart-table-head ">
+									<th style=" width: 7%; "></th>
+									<th style=" width: 9%; "></th>
+									<th style=" width: 42%; padding-left: 10px; ">Sản phẩm</th>
+									<th style=" width: 14%; padding-left: 10px; ">Giá</th>
+									<th style=" width: 14%; padding-left: 10px; ">Số lượng</th>
+									<th style=" width: 14%; padding-left: 10px; ">Tạm tính</th>
+								</thead>
+								<tbody>
+									<th:block th:each="product:${session.cartProduct}">
+										<tr class="cart-table-tr">
+											<td class=" cart-table-td ">
+												<div class=" cart-icon ">
+													<i class=" fa fa-close cart-product-remove "
+														th:onclick="remove(this)"></i>
+												</div>
+											</td>
+											<td class=" cart-table-td-img ">
+												<div class=" cart-product-img ">
+													<img th:src="${product.token}" style="width: 60px; ">
+												</div>
+											</td>
+											<td>
+												<div class=" cart-product ">
+													<div class=" cart-product-link ">
+														<span class=" cart-product-link-name ">Sản phẩm:</span>
+														<span id="ma" style="display:none"
+															th:text="${product.ma}"></span>
+														<a th:href="@{/detailProduct(ma=${product.ma})}"
+															th:text="${product.ten}" class=" cart-product-name "></a>
+													</div>
+													<div class=" cart-product-size ">
+														<span class=" cart-product-size-1 ">Size: </span>
+														<span id="size" th:text="${product.size}"
+															class=" cart-product-size-2 "></span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class=" cart-product-price-nth ">
+													<span class=" cart-product-price-nth-link ">Giá:</span>
+													<div class=" cart-product-price ">
+														<span th:text="${product.format}"></span>
+														<span style=" text-decoration: underline; ">đ</span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="cart-product-price-nth">
+													<span class=" cart-product-price-nth-link ">Số lượng:</span>
+													<div class=" cart-product-amount ">
+														<input id="soluong" type='number' class="cart-product-input"
+															th:value="${product.soluong}" min='1' pattern='>0'>
+														<div class=" cart-product-button ">
+															<input id="inc" type='button' value='+' class="cart-product-button-incre ">
+															<input id="dec" type='button' value='-' class="cart-product-button-decre ">
+														</div>
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<div class=" cart-product-price-nth ">
+													<span class=" cart-product-price-nth-link ">Tạm tính:</span>
+													<div class=" cart-product-price ">
+														<span th:text="${product.caculate}"></span>
+														<span style=" text-decoration: underline; ">đ</span>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</th:block>
+
+									<td colspan=" 6 " style=" text-align: end; border-bottom: 2px solid
+								var(--border-color); ">
+										<div class=" cart-button-update-nth ">
+											<button type="submit" class=" cart-buttton-update ">Cập nhật giỏ hàng</button>
+											<!--<a th:href = "@{/cart/update(list=SP03)}"><button class="cart-buttton-update">Cập nhật giỏ hàng</button></a>-->
+									</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</form>
+				</div>
+
+				<div class=" grid__row " style=" display: flex; justify-content: flex-end; ">
+					<div class=" cart-pay ">
+						<h2 class=" cart-pay-heading ">CỘNG GIỎ HÀNG</h2>
+						<table style=" width: 100%; margin-bottom: 20px; border-spacing: 0; ">
+							<tr>
+								<td style=" width: 50%; border-right: none;border-top: 2px solid
+								var(--border-color); "> <span class=" cart-pay-span ">Tạm tính </span></td>
+								<td style=" border-left: none; border-top: 2px solid var(--border-color); ">
+									<div class=" cart-product-price " style=" color: var(--text-color); ">
+										<span th:text="${tamtinh}"></span>
+										<span style=" text-decoration: underline; ">đ</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style=" width: 50%; border-right: none; "> <span class=" cart-pay-span ">Giao hàng
+									</span></td>
+								<td style=" border-left: none; "> <span class=" cart-pay-span " style=" font-weight:
+								400; ">Phí vận chuyển sẽ tính sau </span></td>
+							</tr>
+							<tr>
+								<td style=" width: 50%; border-right: none; border-bottom: 2px solid
+								var(--border-color); "> <span class=" cart-pay-span ">Tổng </span></td>
+								<td style=" border-left: none; border-bottom: 2px solid var(--border-color); ">
+									<div class=" cart-product-price " style=" color: var(--text-color); font-weight:
+								600; ">
+										<span th:text="${tamtinh}"></span>
+										<span style=" text-decoration: underline; ">đ</span>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<a th:href="@{/detailProduct/pay}" class=" cart-pay-button ">Tiến hành Thanh toán</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:include="@{/footer.html}"></div>
+	</div>
+	<script th:src="@{/index.js}"></script>
+	<script>
+		ShowIndex('.home__heading', '.home__heading-menu');
+		Category('.home__heading');
+		Sticky('.header_filter-background');
+		ViewImage('.img')
+		ChooseSize('.product-buy')
+		solveCart(".cart");
+		function remove(event) {
+			if (confirm("Bạn muốn xóa sản phẩm khỏi giỏ hàng") == true) {
+
+				function getParent(element, selector) {
+
+					while (element.parentElement) {
+						if (element.parentElement.matches(selector)) {
+							return element.parentElement;
+						}
+						element = element.parentElement;
+					}
+				}
+				getParent(event, ".cart-table-tr").style.display = "none";
+				var parent = getParent(event, ".cart-table-tr");
+				document.querySelector("#maSP").value = document.querySelector("#maSP").value + parent.querySelector("#ma").innerHTML + ":" +
+					parent.querySelector("#size").innerHTML + "|";
+			}
+		}
+	</script>
+
+</body>
+
+
+</html>

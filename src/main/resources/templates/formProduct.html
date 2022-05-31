@@ -1,0 +1,81 @@
+<div class="editEmployeeModal ">
+	<div class="modal-dialog ">
+		<div class="modal-content ">
+			<div>
+				<div class="modal-header ">
+					<h4 class="modal-title ">Edit Product</h4>
+					<button type='submit' class="close " data-dismiss="modal " aria-hidden="true ">&times;</button>
+					<!-- <input style="display: none " value="${index} " name="index " type="text " /> -->
+				</div>
+			</div>
+			<div  class= "formProduct">
+				<div class="modal-body ">
+					<div class="form-column-2">
+
+						<div class="form-group " style="width: 49%;">
+							<label class="label ">ID</label>
+							<span th:text="${message}" style="color: red;" class="message"></span>
+							<input id="ma" name="ma" type="text " th:value="${product.ma}" class="form-control " required>
+						</div>
+						<div class="form-group " style="width: 49%;">
+							<label class="label ">Name</label>
+							<input id="ten" name="ten" type="text " th:value="${product.ten}" class="form-control " required>
+						</div>
+					</div>
+
+
+					<div class="form-column-2">
+
+						<div class="form-group " style="width: 49%;">
+							<label class="label "> Price</label>
+							<input id="dongia" name="dongia" type="text" th:value="${product.dongia}"class="form-control " required>
+						</div>
+						<div class="form-group " style="width: 49%;">
+							<label class="label ">Amount</label>
+							<input  id= "soluong" name="soluong" type="number" th:value="${product.soluong}" class="form-control" value="1" min="1"
+								required="{[>0]}">
+						</div>
+					</div>
+
+					<div class="form-column-2">
+
+						<div class="form-group " style="width: 49%;">
+							<label class="label ">Range_Size</label>
+							<input id="size" name="size" type="text " th:value="${product.size}" class="form-control ">
+						</div>
+						<div class="form-group " style="width: 49%;">
+							<label class="label ">Trademark</label>
+							<input id="thuonghieu" name="thuonghieu" type="text " th:value="${product.thuonghieu}" class="form-control ">
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<label class="label ">Image</label>
+						<input id="anh" name="anh" type="text" class="form-control "  th:value="${product.anh}" required>
+					</div>
+
+					<div class="form-group ">
+						<label class="label ">Description</label>
+						<textarea id="mota" th:value="${product.mota}" name="mota" class="form-control " required rows='4'>Giày trẻ em Air Jordan 4 có rất nhiều màu với các màu mix &match với nhau: Đen, đỏ, hồng, xanh,trắng,… tạo nên một đôi giày bóng rổ cổ điển mà thời thượng. Với chất liệu da thoạt nhìn sẽ rất bí chân nhưng giày được thiết kế với các lỗ khoét nhỏ ở mặt trước giày nên sẽ tạo cảm giác thông thoáng, không bị bí chân.
+						</textarea>
+					</div>
+					<div class="form-group ">
+						<label class="label ">Category</label>
+						<select id="typed" name="typed" class="form-select " th:value="${product.typed}" aria-label="Default select example ">
+							<option value="Giày thể thao nam">Giày thể thao nam</option>
+							<option value="Giày thể thao nữ">Giày thể thao nữ</option>
+							<option value="Giày Adidas">Giày Adidas</option>
+							<option value="Giày Bóng Rổ">Giày bóng rổ</option>
+							<option value="Giày Gucci">Giày Gucci</option>
+							<option value="Giày thể thao trẻ em">Giày thể thao trẻ em</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="modal-footer ">
+					<input  id = "submit" name = "submit" type='submit' class="btn-product " value="Edit" th:onclick="'solve();'"  >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

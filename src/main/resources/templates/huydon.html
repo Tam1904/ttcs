@@ -1,0 +1,28 @@
+<div class="editEmployeeModal">
+	<div class="modal-dialog ">
+		<div class="modal-content ">
+			<div>
+				<div class="modal-header ">
+					<h4 class="modal-title ">Hủy đơn</h4>
+					<button type='submit' class="close " data-dismiss="modal " aria-hidden="true "
+						onclick="DeleteForm()">&times;</button>
+				</div>
+			</div>
+			<form th:action="@{/staff/huydon}" method="post">
+				<div class="modal-body ">
+					<input type="hidden" id="makhachhang" name="makhachhang">
+					<input type="hidden" id="ngaymua" name="ngay">
+					<input type="hidden" id="trangthai" name="trangthai">
+					<div class="form-group ">
+						<label class="label">Lý do</label>
+						<textarea id="lydo" name="lydo" class="form-control" required rows="3"></textarea>
+					</div>
+
+				</div>
+				<div class="modal-footer ">
+					<button id="submit" type='submit' class="btn-product " >Xác nhận</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
